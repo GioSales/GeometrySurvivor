@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:unity.com)",
+      "WebFetch(domain:hypnobeavermoose.github.io)",
+      "WebFetch(domain:www.toptal.com)",
+      "WebFetch(domain:devsourcehub.com)",
+      "WebFetch(domain:gamedevbeginner.com)"
+    ]
+  }
+}
