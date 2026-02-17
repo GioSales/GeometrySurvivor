@@ -20,9 +20,9 @@ public class Weapon : MonoBehaviour
         if(_currCooldown > 0)
             return;
         
-        GameObject projectile = Instantiate(_projectilePrefab, _firePoint.position, _firePoint.rotation);
-        projectile.SendMessage("SetDirection", direction);
-        _currCooldown = _cooldown;
+        GameObject projectileInstance = Instantiate(_projectilePrefab, _firePoint.position, _firePoint.rotation);
+        var projectile = projectileInstance.GetComponent<Projectile>();
+        projectile.SetDirection(direction); _currCooldown = _cooldown;
     }
 
     private void Update()
