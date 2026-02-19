@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 // Base class for all projectiles, will be refactored with ECS later
@@ -17,5 +18,10 @@ public class Projectile : MonoBehaviour
     {
         _direction = direction;
         transform.up = _direction;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log("Projectile hit " + other.name);
     }
 }
