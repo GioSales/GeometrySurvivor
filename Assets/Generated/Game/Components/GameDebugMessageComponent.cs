@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly DebugMessageComponent debugMessageComponent = new DebugMessageComponent();
+    public DebugMessageComponent debugMessage { get { return (DebugMessageComponent)GetComponent(GameComponentsLookup.DebugMessage); } }
+    public bool hasDebugMessage { get { return HasComponent(GameComponentsLookup.DebugMessage); } }
 
-    public bool isDebugMessage {
-        get { return HasComponent(GameComponentsLookup.DebugMessage); }
-        set {
-            if (value != isDebugMessage) {
-                var index = GameComponentsLookup.DebugMessage;
-                if (value) {
-                    var componentPool = GetComponentPool(index);
-                    var component = componentPool.Count > 0
-                            ? componentPool.Pop()
-                            : debugMessageComponent;
+    public void AddDebugMessage(string newMessage) {
+        var index = GameComponentsLookup.DebugMessage;
+        var component = (DebugMessageComponent)CreateComponent(index, typeof(DebugMessageComponent));
+        component.Message = newMessage;
+        AddComponent(index, component);
+    }
 
-                    AddComponent(index, component);
-                } else {
-                    RemoveComponent(index);
-                }
-            }
-        }
+    public void ReplaceDebugMessage(string newMessage) {
+        var index = GameComponentsLookup.DebugMessage;
+        var component = (DebugMessageComponent)CreateComponent(index, typeof(DebugMessageComponent));
+        component.Message = newMessage;
+        ReplaceComponent(index, component);
+    }
+
+    public void RemoveDebugMessage() {
+        RemoveComponent(GameComponentsLookup.DebugMessage);
     }
 }
 
