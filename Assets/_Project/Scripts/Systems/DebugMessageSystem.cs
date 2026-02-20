@@ -18,7 +18,7 @@ public class DebugMessageSystem : ReactiveSystem<GameEntity>
     {
         // good practice to perform a final check in case 
         // the entity has been altered in a different system.
-        return entity.isDebugMessage;
+        return entity.hasDebugMessage;
     }
 
     protected override void Execute(List<GameEntity> entities)
@@ -28,7 +28,7 @@ public class DebugMessageSystem : ReactiveSystem<GameEntity>
         { 
             // we can safely access their DebugMessage component
             // then grab the string data and print it
-            Debug.Log(e.GetComponent(GameComponentsLookup.DebugMessage).message);
+            Debug.Log(e.debugMessage.Message);
         }
     }
 }
