@@ -1,7 +1,10 @@
 using Entitas;
 
-[Game]
-public class DebugMessageComponent : IComponent
+namespace GameComponents
 {
-    public string Message;
+    [Game]
+    public class DebugMessageComponent : IComponent
+    {
+        public string Message;
+    }
 }

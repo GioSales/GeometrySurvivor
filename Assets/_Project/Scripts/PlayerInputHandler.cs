@@ -1,6 +1,7 @@
 using Rewired;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Weapons;
 
 // TODO: make inputhandler and compute input, then consume input to move
 public class PlayerInputHandler : MonoBehaviour
