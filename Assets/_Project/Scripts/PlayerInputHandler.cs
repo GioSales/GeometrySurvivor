@@ -2,6 +2,7 @@ using Rewired;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Weapons;
+using Mouse = Rewired.Mouse;
 
 // TODO: make inputhandler and compute input, then consume input to move
 public class PlayerInputHandler : MonoBehaviour
@@ -24,13 +25,14 @@ public class PlayerInputHandler : MonoBehaviour
     {
         Movement();
 
-        BasicAttack();
+        // BasicAttack();
     }
 
     private void BasicAttack()
     {
+        Mouse mouse = ReInput.controllers.Mouse;
         bool basicAttack = _rewiredPlayer.GetButton(RewiredConsts.Action.BasicAttack);
-        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePosition = Camera.main.ScreenToWorldPoint(mouse.screenPosition);
         Vector2 direction = Vector2.Normalize(new Vector2(mousePosition.x - transform.position.x, mousePosition.y - transform.position.y));
         // Vector2 direction = Vector2.left;
         if (basicAttack)
