@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class InputEntity {
 
-    public InputComponents.MousePositionComponent inputComponentsMousePosition { get { return (InputComponents.MousePositionComponent)GetComponent(InputComponentsLookup.InputComponentsMousePosition); } }
-    public bool hasInputComponentsMousePosition { get { return HasComponent(InputComponentsLookup.InputComponentsMousePosition); } }
+    public InputComponents.MousePositionComponent mousePosition { get { return (InputComponents.MousePositionComponent)GetComponent(InputComponentsLookup.MousePosition); } }
+    public bool hasMousePosition { get { return HasComponent(InputComponentsLookup.MousePosition); } }
 
-    public void AddInputComponentsMousePosition(UnityEngine.Vector2 newPosition) {
-        var index = InputComponentsLookup.InputComponentsMousePosition;
+    public void AddMousePosition(UnityEngine.Vector2 newPosition) {
+        var index = InputComponentsLookup.MousePosition;
         var component = (InputComponents.MousePositionComponent)CreateComponent(index, typeof(InputComponents.MousePositionComponent));
         component.position = newPosition;
         AddComponent(index, component);
     }
 
-    public void ReplaceInputComponentsMousePosition(UnityEngine.Vector2 newPosition) {
-        var index = InputComponentsLookup.InputComponentsMousePosition;
+    public void ReplaceMousePosition(UnityEngine.Vector2 newPosition) {
+        var index = InputComponentsLookup.MousePosition;
         var component = (InputComponents.MousePositionComponent)CreateComponent(index, typeof(InputComponents.MousePositionComponent));
         component.position = newPosition;
         ReplaceComponent(index, component);
     }
 
-    public void RemoveInputComponentsMousePosition() {
-        RemoveComponent(InputComponentsLookup.InputComponentsMousePosition);
+    public void RemoveMousePosition() {
+        RemoveComponent(InputComponentsLookup.MousePosition);
     }
 }
 
@@ -40,17 +40,17 @@ public partial class InputEntity {
 //------------------------------------------------------------------------------
 public sealed partial class InputMatcher {
 
-    static Entitas.IMatcher<InputEntity> _matcherInputComponentsMousePosition;
+    static Entitas.IMatcher<InputEntity> _matcherMousePosition;
 
-    public static Entitas.IMatcher<InputEntity> InputComponentsMousePosition {
+    public static Entitas.IMatcher<InputEntity> MousePosition {
         get {
-            if (_matcherInputComponentsMousePosition == null) {
-                var matcher = (Entitas.Matcher<InputEntity>)Entitas.Matcher<InputEntity>.AllOf(InputComponentsLookup.InputComponentsMousePosition);
+            if (_matcherMousePosition == null) {
+                var matcher = (Entitas.Matcher<InputEntity>)Entitas.Matcher<InputEntity>.AllOf(InputComponentsLookup.MousePosition);
                 matcher.componentNames = InputComponentsLookup.componentNames;
-                _matcherInputComponentsMousePosition = matcher;
+                _matcherMousePosition = matcher;
             }
 
-            return _matcherInputComponentsMousePosition;
+            return _matcherMousePosition;
         }
     }
 }

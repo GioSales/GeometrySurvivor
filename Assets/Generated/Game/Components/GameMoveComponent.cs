@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public GameComponents.MoveComponent gameComponentsMove { get { return (GameComponents.MoveComponent)GetComponent(GameComponentsLookup.GameComponentsMove); } }
-    public bool hasGameComponentsMove { get { return HasComponent(GameComponentsLookup.GameComponentsMove); } }
+    public GameComponents.MoveComponent move { get { return (GameComponents.MoveComponent)GetComponent(GameComponentsLookup.Move); } }
+    public bool hasMove { get { return HasComponent(GameComponentsLookup.Move); } }
 
-    public void AddGameComponentsMove(UnityEngine.Vector2 newTarget) {
-        var index = GameComponentsLookup.GameComponentsMove;
+    public void AddMove(UnityEngine.Vector2 newTarget) {
+        var index = GameComponentsLookup.Move;
         var component = (GameComponents.MoveComponent)CreateComponent(index, typeof(GameComponents.MoveComponent));
         component.target = newTarget;
         AddComponent(index, component);
     }
 
-    public void ReplaceGameComponentsMove(UnityEngine.Vector2 newTarget) {
-        var index = GameComponentsLookup.GameComponentsMove;
+    public void ReplaceMove(UnityEngine.Vector2 newTarget) {
+        var index = GameComponentsLookup.Move;
         var component = (GameComponents.MoveComponent)CreateComponent(index, typeof(GameComponents.MoveComponent));
         component.target = newTarget;
         ReplaceComponent(index, component);
     }
 
-    public void RemoveGameComponentsMove() {
-        RemoveComponent(GameComponentsLookup.GameComponentsMove);
+    public void RemoveMove() {
+        RemoveComponent(GameComponentsLookup.Move);
     }
 }
 
@@ -40,17 +40,17 @@ public partial class GameEntity {
 //------------------------------------------------------------------------------
 public sealed partial class GameMatcher {
 
-    static Entitas.IMatcher<GameEntity> _matcherGameComponentsMove;
+    static Entitas.IMatcher<GameEntity> _matcherMove;
 
-    public static Entitas.IMatcher<GameEntity> GameComponentsMove {
+    public static Entitas.IMatcher<GameEntity> Move {
         get {
-            if (_matcherGameComponentsMove == null) {
-                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.GameComponentsMove);
+            if (_matcherMove == null) {
+                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.Move);
                 matcher.componentNames = GameComponentsLookup.componentNames;
-                _matcherGameComponentsMove = matcher;
+                _matcherMove = matcher;
             }
 
-            return _matcherGameComponentsMove;
+            return _matcherMove;
         }
     }
 }

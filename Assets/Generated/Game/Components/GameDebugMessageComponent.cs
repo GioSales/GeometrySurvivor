@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public GameComponents.DebugMessageComponent gameComponentsDebugMessage { get { return (GameComponents.DebugMessageComponent)GetComponent(GameComponentsLookup.GameComponentsDebugMessage); } }
-    public bool hasGameComponentsDebugMessage { get { return HasComponent(GameComponentsLookup.GameComponentsDebugMessage); } }
+    public GameComponents.DebugMessageComponent debugMessage { get { return (GameComponents.DebugMessageComponent)GetComponent(GameComponentsLookup.DebugMessage); } }
+    public bool hasDebugMessage { get { return HasComponent(GameComponentsLookup.DebugMessage); } }
 
-    public void AddGameComponentsDebugMessage(string newMessage) {
-        var index = GameComponentsLookup.GameComponentsDebugMessage;
+    public void AddDebugMessage(string newMessage) {
+        var index = GameComponentsLookup.DebugMessage;
         var component = (GameComponents.DebugMessageComponent)CreateComponent(index, typeof(GameComponents.DebugMessageComponent));
         component.Message = newMessage;
         AddComponent(index, component);
     }
 
-    public void ReplaceGameComponentsDebugMessage(string newMessage) {
-        var index = GameComponentsLookup.GameComponentsDebugMessage;
+    public void ReplaceDebugMessage(string newMessage) {
+        var index = GameComponentsLookup.DebugMessage;
         var component = (GameComponents.DebugMessageComponent)CreateComponent(index, typeof(GameComponents.DebugMessageComponent));
         component.Message = newMessage;
         ReplaceComponent(index, component);
     }
 
-    public void RemoveGameComponentsDebugMessage() {
-        RemoveComponent(GameComponentsLookup.GameComponentsDebugMessage);
+    public void RemoveDebugMessage() {
+        RemoveComponent(GameComponentsLookup.DebugMessage);
     }
 }
 
@@ -40,17 +40,17 @@ public partial class GameEntity {
 //------------------------------------------------------------------------------
 public sealed partial class GameMatcher {
 
-    static Entitas.IMatcher<GameEntity> _matcherGameComponentsDebugMessage;
+    static Entitas.IMatcher<GameEntity> _matcherDebugMessage;
 
-    public static Entitas.IMatcher<GameEntity> GameComponentsDebugMessage {
+    public static Entitas.IMatcher<GameEntity> DebugMessage {
         get {
-            if (_matcherGameComponentsDebugMessage == null) {
-                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.GameComponentsDebugMessage);
+            if (_matcherDebugMessage == null) {
+                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.DebugMessage);
                 matcher.componentNames = GameComponentsLookup.componentNames;
-                _matcherGameComponentsDebugMessage = matcher;
+                _matcherDebugMessage = matcher;
             }
 
-            return _matcherGameComponentsDebugMessage;
+            return _matcherDebugMessage;
         }
     }
 }

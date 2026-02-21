@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class InputEntity {
 
-    public InputComponents.MouseUpComponent inputComponentsMouseUp { get { return (InputComponents.MouseUpComponent)GetComponent(InputComponentsLookup.InputComponentsMouseUp); } }
-    public bool hasInputComponentsMouseUp { get { return HasComponent(InputComponentsLookup.InputComponentsMouseUp); } }
+    public InputComponents.MouseUpComponent mouseUp { get { return (InputComponents.MouseUpComponent)GetComponent(InputComponentsLookup.MouseUp); } }
+    public bool hasMouseUp { get { return HasComponent(InputComponentsLookup.MouseUp); } }
 
-    public void AddInputComponentsMouseUp(UnityEngine.Vector2 newPosition) {
-        var index = InputComponentsLookup.InputComponentsMouseUp;
+    public void AddMouseUp(UnityEngine.Vector2 newPosition) {
+        var index = InputComponentsLookup.MouseUp;
         var component = (InputComponents.MouseUpComponent)CreateComponent(index, typeof(InputComponents.MouseUpComponent));
         component.position = newPosition;
         AddComponent(index, component);
     }
 
-    public void ReplaceInputComponentsMouseUp(UnityEngine.Vector2 newPosition) {
-        var index = InputComponentsLookup.InputComponentsMouseUp;
+    public void ReplaceMouseUp(UnityEngine.Vector2 newPosition) {
+        var index = InputComponentsLookup.MouseUp;
         var component = (InputComponents.MouseUpComponent)CreateComponent(index, typeof(InputComponents.MouseUpComponent));
         component.position = newPosition;
         ReplaceComponent(index, component);
     }
 
-    public void RemoveInputComponentsMouseUp() {
-        RemoveComponent(InputComponentsLookup.InputComponentsMouseUp);
+    public void RemoveMouseUp() {
+        RemoveComponent(InputComponentsLookup.MouseUp);
     }
 }
 
@@ -40,17 +40,17 @@ public partial class InputEntity {
 //------------------------------------------------------------------------------
 public sealed partial class InputMatcher {
 
-    static Entitas.IMatcher<InputEntity> _matcherInputComponentsMouseUp;
+    static Entitas.IMatcher<InputEntity> _matcherMouseUp;
 
-    public static Entitas.IMatcher<InputEntity> InputComponentsMouseUp {
+    public static Entitas.IMatcher<InputEntity> MouseUp {
         get {
-            if (_matcherInputComponentsMouseUp == null) {
-                var matcher = (Entitas.Matcher<InputEntity>)Entitas.Matcher<InputEntity>.AllOf(InputComponentsLookup.InputComponentsMouseUp);
+            if (_matcherMouseUp == null) {
+                var matcher = (Entitas.Matcher<InputEntity>)Entitas.Matcher<InputEntity>.AllOf(InputComponentsLookup.MouseUp);
                 matcher.componentNames = InputComponentsLookup.componentNames;
-                _matcherInputComponentsMouseUp = matcher;
+                _matcherMouseUp = matcher;
             }
 
-            return _matcherInputComponentsMouseUp;
+            return _matcherMouseUp;
         }
     }
 }

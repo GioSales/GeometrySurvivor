@@ -8,18 +8,18 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly GameComponents.MoverComponent gameComponentsMoverComponent = new GameComponents.MoverComponent();
+    static readonly GameComponents.MoveCompleteComponent moveCompleteComponent = new GameComponents.MoveCompleteComponent();
 
-    public bool isGameComponentsMover {
-        get { return HasComponent(GameComponentsLookup.GameComponentsMover); }
+    public bool isMoveComplete {
+        get { return HasComponent(GameComponentsLookup.MoveComplete); }
         set {
-            if (value != isGameComponentsMover) {
-                var index = GameComponentsLookup.GameComponentsMover;
+            if (value != isMoveComplete) {
+                var index = GameComponentsLookup.MoveComplete;
                 if (value) {
                     var componentPool = GetComponentPool(index);
                     var component = componentPool.Count > 0
                             ? componentPool.Pop()
-                            : gameComponentsMoverComponent;
+                            : moveCompleteComponent;
 
                     AddComponent(index, component);
                 } else {
@@ -40,17 +40,17 @@ public partial class GameEntity {
 //------------------------------------------------------------------------------
 public sealed partial class GameMatcher {
 
-    static Entitas.IMatcher<GameEntity> _matcherGameComponentsMover;
+    static Entitas.IMatcher<GameEntity> _matcherMoveComplete;
 
-    public static Entitas.IMatcher<GameEntity> GameComponentsMover {
+    public static Entitas.IMatcher<GameEntity> MoveComplete {
         get {
-            if (_matcherGameComponentsMover == null) {
-                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.GameComponentsMover);
+            if (_matcherMoveComplete == null) {
+                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.MoveComplete);
                 matcher.componentNames = GameComponentsLookup.componentNames;
-                _matcherGameComponentsMover = matcher;
+                _matcherMoveComplete = matcher;
             }
 
-            return _matcherGameComponentsMover;
+            return _matcherMoveComplete;
         }
     }
 }

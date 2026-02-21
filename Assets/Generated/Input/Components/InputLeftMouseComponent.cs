@@ -8,15 +8,15 @@
 //------------------------------------------------------------------------------
 public partial class InputContext {
 
-    public InputEntity inputComponentsRightMouseEntity { get { return GetGroup(InputMatcher.InputComponentsRightMouse).GetSingleEntity(); } }
+    public InputEntity leftMouseEntity { get { return GetGroup(InputMatcher.LeftMouse).GetSingleEntity(); } }
 
-    public bool isInputComponentsRightMouse {
-        get { return inputComponentsRightMouseEntity != null; }
+    public bool isLeftMouse {
+        get { return leftMouseEntity != null; }
         set {
-            var entity = inputComponentsRightMouseEntity;
+            var entity = leftMouseEntity;
             if (value != (entity != null)) {
                 if (value) {
-                    CreateEntity().isInputComponentsRightMouse = true;
+                    CreateEntity().isLeftMouse = true;
                 } else {
                     entity.Destroy();
                 }
@@ -35,18 +35,18 @@ public partial class InputContext {
 //------------------------------------------------------------------------------
 public partial class InputEntity {
 
-    static readonly InputComponents.RightMouseComponent inputComponentsRightMouseComponent = new InputComponents.RightMouseComponent();
+    static readonly InputComponents.LeftMouseComponent leftMouseComponent = new InputComponents.LeftMouseComponent();
 
-    public bool isInputComponentsRightMouse {
-        get { return HasComponent(InputComponentsLookup.InputComponentsRightMouse); }
+    public bool isLeftMouse {
+        get { return HasComponent(InputComponentsLookup.LeftMouse); }
         set {
-            if (value != isInputComponentsRightMouse) {
-                var index = InputComponentsLookup.InputComponentsRightMouse;
+            if (value != isLeftMouse) {
+                var index = InputComponentsLookup.LeftMouse;
                 if (value) {
                     var componentPool = GetComponentPool(index);
                     var component = componentPool.Count > 0
                             ? componentPool.Pop()
-                            : inputComponentsRightMouseComponent;
+                            : leftMouseComponent;
 
                     AddComponent(index, component);
                 } else {
@@ -67,17 +67,17 @@ public partial class InputEntity {
 //------------------------------------------------------------------------------
 public sealed partial class InputMatcher {
 
-    static Entitas.IMatcher<InputEntity> _matcherInputComponentsRightMouse;
+    static Entitas.IMatcher<InputEntity> _matcherLeftMouse;
 
-    public static Entitas.IMatcher<InputEntity> InputComponentsRightMouse {
+    public static Entitas.IMatcher<InputEntity> LeftMouse {
         get {
-            if (_matcherInputComponentsRightMouse == null) {
-                var matcher = (Entitas.Matcher<InputEntity>)Entitas.Matcher<InputEntity>.AllOf(InputComponentsLookup.InputComponentsRightMouse);
+            if (_matcherLeftMouse == null) {
+                var matcher = (Entitas.Matcher<InputEntity>)Entitas.Matcher<InputEntity>.AllOf(InputComponentsLookup.LeftMouse);
                 matcher.componentNames = InputComponentsLookup.componentNames;
-                _matcherInputComponentsRightMouse = matcher;
+                _matcherLeftMouse = matcher;
             }
 
-            return _matcherInputComponentsRightMouse;
+            return _matcherLeftMouse;
         }
     }
 }

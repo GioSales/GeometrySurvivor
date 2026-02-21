@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public GameComponents.SpriteComponent gameComponentsSprite { get { return (GameComponents.SpriteComponent)GetComponent(GameComponentsLookup.GameComponentsSprite); } }
-    public bool hasGameComponentsSprite { get { return HasComponent(GameComponentsLookup.GameComponentsSprite); } }
+    public GameComponents.SpriteComponent sprite { get { return (GameComponents.SpriteComponent)GetComponent(GameComponentsLookup.Sprite); } }
+    public bool hasSprite { get { return HasComponent(GameComponentsLookup.Sprite); } }
 
-    public void AddGameComponentsSprite(string newName) {
-        var index = GameComponentsLookup.GameComponentsSprite;
+    public void AddSprite(string newName) {
+        var index = GameComponentsLookup.Sprite;
         var component = (GameComponents.SpriteComponent)CreateComponent(index, typeof(GameComponents.SpriteComponent));
         component.Name = newName;
         AddComponent(index, component);
     }
 
-    public void ReplaceGameComponentsSprite(string newName) {
-        var index = GameComponentsLookup.GameComponentsSprite;
+    public void ReplaceSprite(string newName) {
+        var index = GameComponentsLookup.Sprite;
         var component = (GameComponents.SpriteComponent)CreateComponent(index, typeof(GameComponents.SpriteComponent));
         component.Name = newName;
         ReplaceComponent(index, component);
     }
 
-    public void RemoveGameComponentsSprite() {
-        RemoveComponent(GameComponentsLookup.GameComponentsSprite);
+    public void RemoveSprite() {
+        RemoveComponent(GameComponentsLookup.Sprite);
     }
 }
 
@@ -40,17 +40,17 @@ public partial class GameEntity {
 //------------------------------------------------------------------------------
 public sealed partial class GameMatcher {
 
-    static Entitas.IMatcher<GameEntity> _matcherGameComponentsSprite;
+    static Entitas.IMatcher<GameEntity> _matcherSprite;
 
-    public static Entitas.IMatcher<GameEntity> GameComponentsSprite {
+    public static Entitas.IMatcher<GameEntity> Sprite {
         get {
-            if (_matcherGameComponentsSprite == null) {
-                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.GameComponentsSprite);
+            if (_matcherSprite == null) {
+                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.Sprite);
                 matcher.componentNames = GameComponentsLookup.componentNames;
-                _matcherGameComponentsSprite = matcher;
+                _matcherSprite = matcher;
             }
 
-            return _matcherGameComponentsSprite;
+            return _matcherSprite;
         }
     }
 }
