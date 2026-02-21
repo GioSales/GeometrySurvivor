@@ -1,33 +1,35 @@
-using System;
-using Unity.Collections;
+using Projectiles;
 using UnityEngine;
 
 // Fires projectiles, can be triggered by events (input from player or enemy AI or something else)
-public class Weapon : MonoBehaviour
+namespace Weapons
 {
-    [SerializeField]
-    private GameObject _projectilePrefab;
-    [SerializeField]
-    private Transform _firePoint;
-    [SerializeField]
-    private float _cooldown = 0.5f;
-    
-    [SerializeField]
-    private float _currCooldown;
-    
-    public void Fire(Vector2 direction)
+    public class Weapon : MonoBehaviour
     {
-        if(_currCooldown > 0)
-            return;
+        [SerializeField]
+        private GameObject _projectilePrefab;
+        [SerializeField]
+        private Transform _firePoint;
+        [SerializeField]
+        private float _cooldown = 0.5f;
+    
+        [SerializeField]
+        private float _currCooldown;
+    
+        public void Fire(Vector2 direction)
+        {
+            if(_currCooldown > 0)
+                return;
         
-        GameObject projectileInstance = Instantiate(_projectilePrefab, _firePoint.position, _firePoint.rotation);
-        var projectile = projectileInstance.GetComponent<Projectile>();
-        projectile.SetDirection(direction); _currCooldown = _cooldown;
-    }
+            GameObject projectileInstance = Instantiate(_projectilePrefab, _firePoint.position, _firePoint.rotation);
+            var projectile = projectileInstance.GetComponent<Projectile>();
+            projectile.SetDirection(direction); _currCooldown = _cooldown;
+        }
 
-    private void Update()
-    {
-        if(_currCooldown > 0)
-            _currCooldown -= Time.deltaTime;
+        private void Update()
+        {
+            if(_currCooldown > 0)
+                _currCooldown -= Time.deltaTime;
+        }
     }
 }

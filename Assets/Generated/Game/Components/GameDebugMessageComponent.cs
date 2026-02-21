@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public DebugMessageComponent debugMessage { get { return (DebugMessageComponent)GetComponent(GameComponentsLookup.DebugMessage); } }
+    public GameComponents.DebugMessageComponent debugMessage { get { return (GameComponents.DebugMessageComponent)GetComponent(GameComponentsLookup.DebugMessage); } }
     public bool hasDebugMessage { get { return HasComponent(GameComponentsLookup.DebugMessage); } }
 
     public void AddDebugMessage(string newMessage) {
         var index = GameComponentsLookup.DebugMessage;
-        var component = (DebugMessageComponent)CreateComponent(index, typeof(DebugMessageComponent));
+        var component = (GameComponents.DebugMessageComponent)CreateComponent(index, typeof(GameComponents.DebugMessageComponent));
         component.Message = newMessage;
         AddComponent(index, component);
     }
 
     public void ReplaceDebugMessage(string newMessage) {
         var index = GameComponentsLookup.DebugMessage;
-        var component = (DebugMessageComponent)CreateComponent(index, typeof(DebugMessageComponent));
+        var component = (GameComponents.DebugMessageComponent)CreateComponent(index, typeof(GameComponents.DebugMessageComponent));
         component.Message = newMessage;
         ReplaceComponent(index, component);
     }
