@@ -14,14 +14,14 @@ public partial class GameEntity {
     public void AddMove(UnityEngine.Vector2 newTarget) {
         var index = GameComponentsLookup.Move;
         var component = (GameComponents.MoveComponent)CreateComponent(index, typeof(GameComponents.MoveComponent));
-        component.target = newTarget;
+        component.Target = newTarget;
         AddComponent(index, component);
     }
 
     public void ReplaceMove(UnityEngine.Vector2 newTarget) {
         var index = GameComponentsLookup.Move;
         var component = (GameComponents.MoveComponent)CreateComponent(index, typeof(GameComponents.MoveComponent));
-        component.target = newTarget;
+        component.Target = newTarget;
         ReplaceComponent(index, component);
     }
 

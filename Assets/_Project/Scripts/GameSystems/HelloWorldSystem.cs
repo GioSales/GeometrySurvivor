@@ -1,6 +1,6 @@
 ﻿using Entitas;
 
-namespace Systems
+namespace GameSystems
 {
     public class HelloWorldSystem : IInitializeSystem
     { 

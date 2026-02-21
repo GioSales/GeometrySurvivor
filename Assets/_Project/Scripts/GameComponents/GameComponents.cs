@@ -29,7 +29,7 @@ namespace GameComponents
     
     public class MoveComponent : IComponent
     {
-        public Vector2 target;
+        public Vector2 Target;
     }
 
     [Game]
