@@ -1,4 +1,5 @@
 using Entitas;
+using Entitas.CodeGeneration.Attributes;
 using UnityEngine;
 
 namespace GameComponents
@@ -27,11 +28,19 @@ namespace GameComponents
         public GameObject GameObject;
     }
     
+    [Game]
     public class MoveComponent : IComponent
     {
         public Vector2 Target;
     }
+    
+    [Game]
+    public class SpriteSizeComponent : IComponent
+    {
+        public Vector3 Size;
+    }
 
+    // TODO: remove?
     [Game]
     public class MoverComponent : IComponent
     {
@@ -39,6 +48,11 @@ namespace GameComponents
     
     [Game]
     public class MoveCompleteComponent : IComponent
+    {
+    }
+    
+    [Game, Unique]
+    public class PlayerComponent : IComponent
     {
     }
 }

@@ -10,7 +10,6 @@ namespace Features
         {
             Add(new EmitInputSystem(contexts));
             Add(new CreateMoverSystem(contexts));
-            Add(new CommandMoveSystem(contexts));
         }         
     }
 }

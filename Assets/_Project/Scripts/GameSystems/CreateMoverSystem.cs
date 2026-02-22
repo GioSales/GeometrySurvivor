@@ -28,9 +28,11 @@ namespace GameSystems
             {
                 GameEntity mover = _gameContext.CreateEntity();
                 mover.isMover = true;
+                mover.AddMove(Vector2.zero);
                 mover.AddPosition(e.mouseDown.position);
                 mover.AddDirection(Random.Range(0,360));
                 mover.AddSprite("Triangle");
+                mover.AddSpriteSize(new Vector3(0.15f, 0.15f, 1));
             }
         }
     }

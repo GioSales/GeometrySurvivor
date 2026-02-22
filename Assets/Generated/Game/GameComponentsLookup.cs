@@ -13,11 +13,13 @@ public static class GameComponentsLookup {
     public const int MoveComplete = 2;
     public const int Move = 3;
     public const int Mover = 4;
-    public const int Position = 5;
-    public const int Sprite = 6;
-    public const int View = 7;
+    public const int Player = 5;
+    public const int Position = 6;
+    public const int Sprite = 7;
+    public const int SpriteSize = 8;
+    public const int View = 9;
 
-    public const int TotalComponents = 8;
+    public const int TotalComponents = 10;
 
     public static readonly string[] componentNames = {
         "DebugMessage",
@@ -25,8 +27,10 @@ public static class GameComponentsLookup {
         "MoveComplete",
         "Move",
         "Mover",
+        "Player",
         "Position",
         "Sprite",
+        "SpriteSize",
         "View"
     };
 
@@ -36,8 +40,10 @@ public static class GameComponentsLookup {
         typeof(GameComponents.MoveCompleteComponent),
         typeof(GameComponents.MoveComponent),
         typeof(GameComponents.MoverComponent),
+        typeof(GameComponents.PlayerComponent),
         typeof(GameComponents.PositionComponent),
         typeof(GameComponents.SpriteComponent),
+        typeof(GameComponents.SpriteSizeComponent),
         typeof(GameComponents.ViewComponent)
     };
 }

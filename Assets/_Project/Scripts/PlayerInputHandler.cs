@@ -5,6 +5,7 @@ using Weapons;
 using Mouse = Rewired.Mouse;
 
 // TODO: make inputhandler and compute input, then consume input to move
+// TODO: delete/refactor to apply input for ECS player entity
 public class PlayerInputHandler : MonoBehaviour
 {
     private Player _rewiredPlayer;
@@ -23,7 +24,7 @@ public class PlayerInputHandler : MonoBehaviour
     // TODO: make sure game is not affected by FPS and stays consistent (fixed timestep?)
     void FixedUpdate()
     {
-        Movement();
+        // Movement();
 
         // BasicAttack();
     }

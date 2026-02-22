@@ -28,6 +28,7 @@ namespace GameSystems
                 SpriteRenderer sr = go.GetComponent<SpriteRenderer>();
                 if (sr == null) sr = go.AddComponent<SpriteRenderer>();
                 sr.sprite = Resources.Load<Sprite>(e.sprite.Name);
+                go.transform.localScale = e.spriteSize.Size;
             }
         }
     }

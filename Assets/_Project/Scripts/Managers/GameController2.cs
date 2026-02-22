@@ -15,19 +15,20 @@ namespace Managers
             _systems = CreateSystems(_contexts);
             _systems.Initialize();
         }
+        
+        private static Systems CreateSystems(Contexts contexts)
+        {
+            return new Feature("Systems")
+                .Add(new PlayerSystems(contexts))
+                .Add(new InputSystems(contexts))
+                .Add(new MovementSystems(contexts))
+                .Add(new ViewSystems(contexts));
+        }
 
         void Update()
         {
             _systems.Execute();
             _systems.Cleanup();
-        }
-
-        private static Systems CreateSystems(Contexts contexts)
-        {
-            return new Feature("Systems")
-                .Add(new InputSystems(contexts))
-                .Add(new MovementSystems(contexts))
-                .Add(new ViewSystems(contexts));
         }
     }
 }
