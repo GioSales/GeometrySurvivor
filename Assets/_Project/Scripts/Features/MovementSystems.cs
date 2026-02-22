@@ -6,7 +6,7 @@ namespace Features
     {
         public MovementSystems(Contexts contexts) : base("Movement Systems")
         {
-            Add(new MoveSystem(contexts));
+            Add(new EnemyMoveSystem(contexts));
             Add(new EnemyFollowPlayerSystem(contexts));
         }
     }

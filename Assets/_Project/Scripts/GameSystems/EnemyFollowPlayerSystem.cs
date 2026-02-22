@@ -2,6 +2,7 @@
 
 namespace GameSystems
 {
+    //TODO: refactor to allow feeding in different targets for enemies instead of hardcoding to follow player?
     public class EnemyFollowPlayerSystem : IInitializeSystem, IExecuteSystem
     {
         readonly GameContext _context;
@@ -13,7 +14,7 @@ namespace GameSystems
         public EnemyFollowPlayerSystem(Contexts contexts)
         {
             _context = contexts.game;
-            _enemies = contexts.game.GetGroup(GameMatcher.Mover);
+            _enemies = contexts.game.GetGroup(GameMatcher.Enemy);
         }
         
         public void Initialize()
@@ -25,7 +26,7 @@ namespace GameSystems
         {
             foreach (var enemy in _enemies)
             {
-                enemy.move.Target = _player.position.Value;
+                enemy.enemyMoveTarget.Target = _player.position.Value;
             }
         }
     }

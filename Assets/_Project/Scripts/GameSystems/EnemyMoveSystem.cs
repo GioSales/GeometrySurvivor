@@ -3,21 +3,21 @@ using UnityEngine;
 
 namespace GameSystems
 {
-    public class MoveSystem : IExecuteSystem
+    public class EnemyMoveSystem : IExecuteSystem
     {
-        readonly IGroup<GameEntity> _moves;
+        readonly IGroup<GameEntity> _enemies;
         const float _speed = 4f;
 
-        public MoveSystem(Contexts contexts)
+        public EnemyMoveSystem(Contexts contexts)
         {
-            _moves = contexts.game.GetGroup(GameMatcher.Move);
+            _enemies = contexts.game.GetGroup(GameMatcher.Enemy);
         }
 
         public void Execute()
         {
-            foreach (GameEntity e in _moves.GetEntities())
+            foreach (GameEntity e in _enemies.GetEntities())
             {
-                Vector2 dir = e.move.Target - e.position.Value;
+                Vector2 dir = e.enemyMoveTarget.Target - e.position.Value;
                 float dist = dir.magnitude;
                 if (dist <= 0.5f)
                     continue;
