@@ -42,19 +42,8 @@ namespace GameComponents
         public Vector3 Size;
     }
     
-    [Game, Unique]
-    public class PlayerComponent : IComponent
-    {
-    }
-    
     [Game]
     public class EnemyComponent : IComponent
     {
-    }
-    
-    [Game]
-    public class MovementComponent : IComponent
-    {
-        public float MoveSpeed;
     }
 }

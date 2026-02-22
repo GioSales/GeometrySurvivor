@@ -12,12 +12,12 @@ public static class GameComponentsLookup {
     public const int Direction = 1;
     public const int Enemy = 2;
     public const int EnemyMoveTarget = 3;
-    public const int Movement = 4;
-    public const int Player = 5;
-    public const int Position = 6;
-    public const int Sprite = 7;
-    public const int SpriteSize = 8;
-    public const int View = 9;
+    public const int Position = 4;
+    public const int Sprite = 5;
+    public const int SpriteSize = 6;
+    public const int View = 7;
+    public const int Player = 8;
+    public const int PlayerMovement = 9;
 
     public const int TotalComponents = 10;
 
@@ -26,12 +26,12 @@ public static class GameComponentsLookup {
         "Direction",
         "Enemy",
         "EnemyMoveTarget",
-        "Movement",
-        "Player",
         "Position",
         "Sprite",
         "SpriteSize",
-        "View"
+        "View",
+        "Player",
+        "PlayerMovement"
     };
 
     public static readonly System.Type[] componentTypes = {
@@ -39,11 +39,11 @@ public static class GameComponentsLookup {
         typeof(GameComponents.DirectionComponent),
         typeof(GameComponents.EnemyComponent),
         typeof(GameComponents.EnemyMoveTargetComponent),
-        typeof(GameComponents.MovementComponent),
-        typeof(GameComponents.PlayerComponent),
         typeof(GameComponents.PositionComponent),
         typeof(GameComponents.SpriteComponent),
         typeof(GameComponents.SpriteSizeComponent),
-        typeof(GameComponents.ViewComponent)
+        typeof(GameComponents.ViewComponent),
+        typeof(GamePlayer.PlayerComponent),
+        typeof(GamePlayer.PlayerMovementComponent)
     };
 }

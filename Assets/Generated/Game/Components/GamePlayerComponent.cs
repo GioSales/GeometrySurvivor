@@ -35,7 +35,7 @@ public partial class GameContext {
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly GameComponents.PlayerComponent playerComponent = new GameComponents.PlayerComponent();
+    static readonly GamePlayer.PlayerComponent playerComponent = new GamePlayer.PlayerComponent();
 
     public bool isPlayer {
         get { return HasComponent(GameComponentsLookup.Player); }
