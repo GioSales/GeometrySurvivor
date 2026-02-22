@@ -33,6 +33,7 @@ namespace GameComponents
     {
         // Position to move towards
         public Vector2 Target;
+        public float MoveSpeed;
     }
     
     [Game]

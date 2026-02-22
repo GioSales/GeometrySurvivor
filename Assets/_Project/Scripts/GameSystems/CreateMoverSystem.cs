@@ -28,7 +28,7 @@ namespace GameSystems
             {
                 GameEntity mover = _gameContext.CreateEntity();
                 mover.isEnemy = true;
-                mover.AddEnemyMoveTarget(Vector2.zero);
+                mover.AddEnemyMoveTarget(newTarget: Vector2.zero, newMoveSpeed: 0.5f);
                 mover.AddPosition(e.mouseDown.position);
                 mover.AddDirection(Random.Range(0,360));
                 mover.AddSprite("Triangle");

@@ -11,17 +11,19 @@ public partial class GameEntity {
     public GameComponents.EnemyMoveTargetComponent enemyMoveTarget { get { return (GameComponents.EnemyMoveTargetComponent)GetComponent(GameComponentsLookup.EnemyMoveTarget); } }
     public bool hasEnemyMoveTarget { get { return HasComponent(GameComponentsLookup.EnemyMoveTarget); } }
 
-    public void AddEnemyMoveTarget(UnityEngine.Vector2 newTarget) {
+    public void AddEnemyMoveTarget(UnityEngine.Vector2 newTarget, float newMoveSpeed) {
         var index = GameComponentsLookup.EnemyMoveTarget;
         var component = (GameComponents.EnemyMoveTargetComponent)CreateComponent(index, typeof(GameComponents.EnemyMoveTargetComponent));
         component.Target = newTarget;
+        component.MoveSpeed = newMoveSpeed;
         AddComponent(index, component);
     }
 
-    public void ReplaceEnemyMoveTarget(UnityEngine.Vector2 newTarget) {
+    public void ReplaceEnemyMoveTarget(UnityEngine.Vector2 newTarget, float newMoveSpeed) {
         var index = GameComponentsLookup.EnemyMoveTarget;
         var component = (GameComponents.EnemyMoveTargetComponent)CreateComponent(index, typeof(GameComponents.EnemyMoveTargetComponent));
         component.Target = newTarget;
+        component.MoveSpeed = newMoveSpeed;
         ReplaceComponent(index, component);
     }
 
