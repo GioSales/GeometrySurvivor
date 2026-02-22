@@ -8,18 +8,18 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly GameComponents.MoverComponent moverComponent = new GameComponents.MoverComponent();
+    static readonly GameComponents.EnemyComponent enemyComponent = new GameComponents.EnemyComponent();
 
-    public bool isMover {
-        get { return HasComponent(GameComponentsLookup.Mover); }
+    public bool isEnemy {
+        get { return HasComponent(GameComponentsLookup.Enemy); }
         set {
-            if (value != isMover) {
-                var index = GameComponentsLookup.Mover;
+            if (value != isEnemy) {
+                var index = GameComponentsLookup.Enemy;
                 if (value) {
                     var componentPool = GetComponentPool(index);
                     var component = componentPool.Count > 0
                             ? componentPool.Pop()
-                            : moverComponent;
+                            : enemyComponent;
 
                     AddComponent(index, component);
                 } else {
@@ -40,17 +40,17 @@ public partial class GameEntity {
 //------------------------------------------------------------------------------
 public sealed partial class GameMatcher {
 
-    static Entitas.IMatcher<GameEntity> _matcherMover;
+    static Entitas.IMatcher<GameEntity> _matcherEnemy;
 
-    public static Entitas.IMatcher<GameEntity> Mover {
+    public static Entitas.IMatcher<GameEntity> Enemy {
         get {
-            if (_matcherMover == null) {
-                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.Mover);
+            if (_matcherEnemy == null) {
+                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.Enemy);
                 matcher.componentNames = GameComponentsLookup.componentNames;
-                _matcherMover = matcher;
+                _matcherEnemy = matcher;
             }
 
-            return _matcherMover;
+            return _matcherEnemy;
         }
     }
 }

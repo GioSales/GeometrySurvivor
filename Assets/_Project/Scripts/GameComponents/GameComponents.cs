@@ -29,8 +29,9 @@ namespace GameComponents
     }
     
     [Game]
-    public class MoveComponent : IComponent
+    public class EnemyMoveTargetComponent : IComponent
     {
+        // Position to move towards
         public Vector2 Target;
     }
     
@@ -39,20 +40,20 @@ namespace GameComponents
     {
         public Vector3 Size;
     }
-
-    // TODO: remove?
-    [Game]
-    public class MoverComponent : IComponent
-    {
-    }
-    
-    [Game]
-    public class MoveCompleteComponent : IComponent
-    {
-    }
     
     [Game, Unique]
     public class PlayerComponent : IComponent
     {
+    }
+    
+    [Game]
+    public class EnemyComponent : IComponent
+    {
+    }
+    
+    [Game]
+    public class MovementComponent : IComponent
+    {
+        public float MoveSpeed;
     }
 }
