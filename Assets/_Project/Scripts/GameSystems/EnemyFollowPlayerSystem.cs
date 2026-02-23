@@ -24,7 +24,7 @@ namespace GameSystems
         
         public void Execute()
         {
-            foreach (var enemy in _enemies)
+            foreach (GameEntity enemy in _enemies)
             {
                 enemy.enemyMoveTarget.Target = _player.position.Value;
             }

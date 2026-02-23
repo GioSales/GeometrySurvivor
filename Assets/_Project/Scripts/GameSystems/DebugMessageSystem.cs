@@ -26,7 +26,7 @@ namespace GameSystems
         protected override void Execute(List<GameEntity> entities)
         {
             // this is the list of entities that meet our conditions
-            foreach (var e in entities)
+            foreach (GameEntity e in entities)
             { 
                 // we can safely access their DebugMessage component
                 // then grab the string data and print it

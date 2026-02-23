@@ -10,7 +10,7 @@ namespace Managers
         void Start()
         {
             // get a reference to the contexts
-            var contexts = Contexts.sharedInstance;
+            Contexts contexts = Contexts.sharedInstance;
         
             // create the systems by creating individual features
             _systems = new Feature("Systems")
