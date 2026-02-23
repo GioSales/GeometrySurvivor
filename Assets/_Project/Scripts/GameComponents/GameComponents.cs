@@ -46,4 +46,10 @@ namespace GameComponents
     public class EnemyComponent : IComponent
     {
     }
+    
+    [Game]
+    public class CircleColliderComponent : IComponent
+    {
+        public float Radius;
+    }
 }

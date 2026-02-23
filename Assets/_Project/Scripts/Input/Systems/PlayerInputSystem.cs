@@ -1,4 +1,5 @@
 ﻿using Entitas;
+using GamePlayer;
 using Rewired;
 
 namespace Input.Systems
@@ -26,6 +27,10 @@ namespace Input.Systems
             
             float verMovement = _rewiredPlayer.GetAxis(RewiredConsts.Action.MoveVertical);
             _player.playerMovement.VerticalAxis = verMovement;
+
+            PlayerActionComponent actionComponent = _player.playerAction;
+            actionComponent.BasicAtkActive = _rewiredPlayer.GetButton(RewiredConsts.Action.BasicAttack);
+            // TODO: skill action state
         }
     }
 }

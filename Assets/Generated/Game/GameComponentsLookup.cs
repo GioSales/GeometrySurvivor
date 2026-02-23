@@ -8,20 +8,23 @@
 //------------------------------------------------------------------------------
 public static class GameComponentsLookup {
 
-    public const int DebugMessage = 0;
-    public const int Direction = 1;
-    public const int Enemy = 2;
-    public const int EnemyMoveTarget = 3;
-    public const int Position = 4;
-    public const int Sprite = 5;
-    public const int SpriteSize = 6;
-    public const int View = 7;
-    public const int Player = 8;
-    public const int PlayerMovement = 9;
+    public const int CircleCollider = 0;
+    public const int DebugMessage = 1;
+    public const int Direction = 2;
+    public const int Enemy = 3;
+    public const int EnemyMoveTarget = 4;
+    public const int Position = 5;
+    public const int Sprite = 6;
+    public const int SpriteSize = 7;
+    public const int View = 8;
+    public const int PlayerAction = 9;
+    public const int Player = 10;
+    public const int PlayerMovement = 11;
 
-    public const int TotalComponents = 10;
+    public const int TotalComponents = 12;
 
     public static readonly string[] componentNames = {
+        "CircleCollider",
         "DebugMessage",
         "Direction",
         "Enemy",
@@ -30,11 +33,13 @@ public static class GameComponentsLookup {
         "Sprite",
         "SpriteSize",
         "View",
+        "PlayerAction",
         "Player",
         "PlayerMovement"
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(GameComponents.CircleColliderComponent),
         typeof(GameComponents.DebugMessageComponent),
         typeof(GameComponents.DirectionComponent),
         typeof(GameComponents.EnemyComponent),
@@ -43,6 +48,7 @@ public static class GameComponentsLookup {
         typeof(GameComponents.SpriteComponent),
         typeof(GameComponents.SpriteSizeComponent),
         typeof(GameComponents.ViewComponent),
+        typeof(GamePlayer.PlayerActionComponent),
         typeof(GamePlayer.PlayerComponent),
         typeof(GamePlayer.PlayerMovementComponent)
     };
