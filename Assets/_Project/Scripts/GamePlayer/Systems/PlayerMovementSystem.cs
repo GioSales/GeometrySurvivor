@@ -26,8 +26,8 @@ namespace GamePlayer
             float moveSpeed      = _player.playerMovement.MoveSpeed; 
             
             Vector2 movement = new Vector2(moveHorizontal * moveSpeed, moveVertical * moveSpeed) * Time.deltaTime;
-            Transform playerTransform = _player.view.GameObject.transform;
-            playerTransform.Translate(movement);
+            Vector2 newPosition = _player.position.Value + movement;
+            _player.ReplacePosition(newPosition);
         }
     }
 }
