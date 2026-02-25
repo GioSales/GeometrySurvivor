@@ -16,5 +16,11 @@ namespace GamePlayer
         public float HorizontalAxis;
         public float VerticalAxis;
     }
+
+    public class BasicAttackComponent : IComponent
+    {
+        public float CooldownTimer;
+        public float Cooldown;
+    }
     
 }

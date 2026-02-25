@@ -52,4 +52,17 @@ namespace GameComponents
     {
         public float Radius;
     }
+    
+    [Game]
+    public class ProjectileComponent : IComponent
+    {
+        public float Speed;
+    }
+    
+    [Game]
+    public class ProjectileDirectionComponent : IComponent
+    {
+        public Vector2 Value;
+    }
+
 }

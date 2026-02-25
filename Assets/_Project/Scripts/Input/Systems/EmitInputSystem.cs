@@ -34,6 +34,17 @@ namespace Input.Systems
             // mouse position
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(mouse.screenPosition);
 
+            // left mouse button
+            if (mouse.GetButtonDown(0))
+                _leftMouseEntity.ReplaceMouseDown(mousePosition);
+            
+            if (mouse.GetButton(0))
+                _leftMouseEntity.ReplaceMousePosition(mousePosition);
+        
+            if (mouse.GetButtonUp(0))
+                _leftMouseEntity.ReplaceMouseUp(mousePosition);
+        
+
             // right mouse button
             if (mouse.GetButtonDown(1))
                 _rightMouseEntity.ReplaceMouseDown(mousePosition);

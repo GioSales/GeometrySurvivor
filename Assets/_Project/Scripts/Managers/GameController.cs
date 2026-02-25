@@ -1,31 +1,33 @@
 ﻿using Features;
+using Entitas;
 using UnityEngine;
 
 namespace Managers
 {
     public class GameController : MonoBehaviour
     {
-        Entitas.Systems _systems;
+        private Systems _systems;
+        private Contexts _contexts;
 
         void Start()
         {
-            // get a reference to the contexts
-            Contexts contexts = Contexts.sharedInstance;
-        
-            // create the systems by creating individual features
-            _systems = new Feature("Systems")
-                .Add(new TutorialSystems(contexts));
-
-            // call Initialize() on all of the IInitializeSystems
+            _contexts = Contexts.sharedInstance;
+            _systems = CreateSystems(_contexts);
             _systems.Initialize();
+        }
+        
+        private static Systems CreateSystems(Contexts contexts)
+        {
+            return new Feature("Systems")
+                .Add(new PlayerSystems(contexts))
+                .Add(new InputSystems(contexts))
+                .Add(new MovementSystems(contexts))
+                .Add(new ViewSystems(contexts));
         }
 
         void Update()
         {
-            // call Execute() on all the IExecuteSystems and 
-            // ReactiveSystems that were triggered last frame
             _systems.Execute();
-            // call cleanup() on all the ICleanupSystems
             _systems.Cleanup();
         }
     }

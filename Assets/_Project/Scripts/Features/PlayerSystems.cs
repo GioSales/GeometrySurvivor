@@ -9,6 +9,7 @@ namespace Features
         {
             Add(new PlayerInitSystem(contexts));
             Add(new PlayerMovementSystem(contexts));
+            Add(new PlayerActionSystem(contexts));
         }  
     }
 }

@@ -4,10 +4,10 @@ using UnityEngine;
 
 namespace GameSystems
 {
-    public class CreateMoverSystem : ReactiveSystem<InputEntity>
+    public class CreateEnemySystem : ReactiveSystem<InputEntity>
     {
         readonly GameContext _gameContext;
-        public CreateMoverSystem(Contexts contexts) : base(contexts.input)
+        public CreateEnemySystem(Contexts contexts) : base(contexts.input)
         {
             _gameContext = contexts.game;
         }

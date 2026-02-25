@@ -14,14 +14,17 @@ public static class GameComponentsLookup {
     public const int Enemy = 3;
     public const int EnemyMoveTarget = 4;
     public const int Position = 5;
-    public const int Sprite = 6;
-    public const int SpriteSize = 7;
-    public const int View = 8;
-    public const int PlayerAction = 9;
-    public const int Player = 10;
-    public const int PlayerMovement = 11;
+    public const int Projectile = 6;
+    public const int ProjectileDirection = 7;
+    public const int Sprite = 8;
+    public const int SpriteSize = 9;
+    public const int View = 10;
+    public const int BasicAttack = 11;
+    public const int PlayerAction = 12;
+    public const int Player = 13;
+    public const int PlayerMovement = 14;
 
-    public const int TotalComponents = 12;
+    public const int TotalComponents = 15;
 
     public static readonly string[] componentNames = {
         "CircleCollider",
@@ -30,9 +33,12 @@ public static class GameComponentsLookup {
         "Enemy",
         "EnemyMoveTarget",
         "Position",
+        "Projectile",
+        "ProjectileDirection",
         "Sprite",
         "SpriteSize",
         "View",
+        "BasicAttack",
         "PlayerAction",
         "Player",
         "PlayerMovement"
@@ -45,9 +51,12 @@ public static class GameComponentsLookup {
         typeof(GameComponents.EnemyComponent),
         typeof(GameComponents.EnemyMoveTargetComponent),
         typeof(GameComponents.PositionComponent),
+        typeof(GameComponents.ProjectileComponent),
+        typeof(GameComponents.ProjectileDirectionComponent),
         typeof(GameComponents.SpriteComponent),
         typeof(GameComponents.SpriteSizeComponent),
         typeof(GameComponents.ViewComponent),
+        typeof(GamePlayer.BasicAttackComponent),
         typeof(GamePlayer.PlayerActionComponent),
         typeof(GamePlayer.PlayerComponent),
         typeof(GamePlayer.PlayerMovementComponent)

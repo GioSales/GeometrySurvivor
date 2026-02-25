@@ -8,6 +8,7 @@ namespace Features
         {
             Add(new EnemyMoveSystem(contexts));
             Add(new EnemyFollowPlayerSystem(contexts));
+            Add(new ProjectileMovementSystem(contexts));
         }
     }
 }
