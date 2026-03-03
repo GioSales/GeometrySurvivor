@@ -74,6 +74,6 @@ namespace GameComponents
     // Destroys the entire entity at end of frame
     [Game]
     [Cleanup(CleanupMode.DestroyEntity)]
-    public sealed class DestroyedComponent : IComponent { }
+    public sealed class ToBeDestroyedComponent : IComponent { }
 
 }

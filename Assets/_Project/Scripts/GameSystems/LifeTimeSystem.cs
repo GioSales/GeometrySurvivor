@@ -19,7 +19,7 @@ namespace GameSystems
             {
                 e.lifeTime.TimeLeft -= Time.deltaTime;
                 if (e.lifeTime.TimeLeft <= 0)
-                    e.isDestroyed = true; // mark for destruction
+                    e.isToBeDestroyed = true; // mark for destruction
             }
         }
     }

@@ -8,18 +8,18 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly GameComponents.DestroyedComponent destroyedComponent = new GameComponents.DestroyedComponent();
+    static readonly GameComponents.ToBeDestroyedComponent toBeDestroyedComponent = new GameComponents.ToBeDestroyedComponent();
 
-    public bool isDestroyed {
-        get { return HasComponent(GameComponentsLookup.Destroyed); }
+    public bool isToBeDestroyed {
+        get { return HasComponent(GameComponentsLookup.ToBeDestroyed); }
         set {
-            if (value != isDestroyed) {
-                var index = GameComponentsLookup.Destroyed;
+            if (value != isToBeDestroyed) {
+                var index = GameComponentsLookup.ToBeDestroyed;
                 if (value) {
                     var componentPool = GetComponentPool(index);
                     var component = componentPool.Count > 0
                             ? componentPool.Pop()
-                            : destroyedComponent;
+                            : toBeDestroyedComponent;
 
                     AddComponent(index, component);
                 } else {
@@ -40,17 +40,17 @@ public partial class GameEntity {
 //------------------------------------------------------------------------------
 public sealed partial class GameMatcher {
 
-    static Entitas.IMatcher<GameEntity> _matcherDestroyed;
+    static Entitas.IMatcher<GameEntity> _matcherToBeDestroyed;
 
-    public static Entitas.IMatcher<GameEntity> Destroyed {
+    public static Entitas.IMatcher<GameEntity> ToBeDestroyed {
         get {
-            if (_matcherDestroyed == null) {
-                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.Destroyed);
+            if (_matcherToBeDestroyed == null) {
+                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.ToBeDestroyed);
                 matcher.componentNames = GameComponentsLookup.componentNames;
-                _matcherDestroyed = matcher;
+                _matcherToBeDestroyed = matcher;
             }
 
-            return _matcherDestroyed;
+            return _matcherToBeDestroyed;
         }
     }
 }
