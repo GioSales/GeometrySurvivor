@@ -1,5 +1,6 @@
 ﻿using Features;
 using Entitas;
+using GameSystems;
 using UnityEngine;
 
 namespace Managers
@@ -15,14 +16,18 @@ namespace Managers
             _systems = CreateSystems(_contexts);
             _systems.Initialize();
         }
-        
+
         private static Systems CreateSystems(Contexts contexts)
         {
+            var pool = new GameObjectPool();
+
             return new Feature("Systems")
                 .Add(new PlayerSystems(contexts))
                 .Add(new InputSystems(contexts))
                 .Add(new MovementSystems(contexts))
-                .Add(new ViewSystems(contexts));
+                .Add(new ViewSystems(contexts, pool))
+                .Add(new DestroyFxSystems(contexts))
+                .Add(new CleanUpSystems(contexts, pool));
         }
 
         void Update()
