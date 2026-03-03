@@ -1,5 +1,6 @@
 ﻿using Entitas;
 using GameSystems;
+using Unity.VisualScripting;
 
 namespace Features
 {
@@ -12,6 +13,7 @@ namespace Features
             Add(new RenderSpriteSystem(contexts));
             Add(new RenderPositionSystem(contexts));
             Add(new RenderDirectionSystem(contexts));
+            Add(new LifeTimeSystem(contexts)); // TODO: move to a different feature?
         }
     }
 }
