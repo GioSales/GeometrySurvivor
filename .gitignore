@@ -100,3 +100,4 @@ InitTestScene*.unity*
 
 # Idea folder
 .idea
+.claude/settings.local.json
