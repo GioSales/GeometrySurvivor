@@ -1,5 +1,6 @@
 ﻿using Entitas;
 using GamePlayer;
+using InputComponents;
 using Rewired;
 using UnityEngine;
 
@@ -7,7 +8,8 @@ namespace Input.Systems
 {
     public class PlayerInputSystem : IExecuteSystem, IInitializeSystem
     {
-        readonly GameContext _context;
+        readonly GameContext _gameContext;
+        readonly InputContext _inputContext;
         GameEntity _player;
         Camera _camera;
         
@@ -15,7 +17,8 @@ namespace Input.Systems
         
         public PlayerInputSystem(Contexts contexts)
         {
-            _context = contexts.game;
+            _gameContext = contexts.game;
+            _inputContext = contexts.input;
             // TODO: stop using system player, use system player only for debugging actions?
             _rewiredPlayer = ReInput.players.GetSystemPlayer();
         }
@@ -27,7 +30,7 @@ namespace Input.Systems
         
         public void Execute()
         {
-            _player = _context.playerEntity;
+            _player = _gameContext.playerEntity;
             
             float horMovement = _rewiredPlayer.GetAxis(RewiredConsts.Action.MoveHorizontal);
             _player.playerMovement.HorizontalAxis = horMovement;
@@ -37,20 +40,21 @@ namespace Input.Systems
 
             PlayerActionComponent actionComponent = _player.playerAction;
             actionComponent.BasicAtkActive = _rewiredPlayer.GetButton(RewiredConsts.Action.BasicAttack);
-            
-            Mouse mouse = ReInput.controllers.Mouse;
-            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(mouse.screenPosition);
+
+            Vector2 mousePosition = _inputContext.leftMouseEntity.mousePosition.position;
             // TODO: cooldown
             if (actionComponent.BasicAtkActive)
             {
-                GameEntity projectile = _context.CreateEntity();
+                GameEntity projectile = _gameContext.CreateEntity();
                 projectile.AddProjectile(newSpeed: 0.5f);
                 Vector2 direction = mousePosition - _player.position.Value;
+                direction.Normalize();
                 projectile.AddProjectileDirection(direction);
                 projectile.AddPosition(_player.position.Value);
                 projectile.AddDirection(0);
                 projectile.AddSprite("Capsule");
                 projectile.AddSpriteSize(new Vector3(0.04f, 0.08f, 1));
+                projectile.AddLifeTime(2f);
             }
         }
     }
