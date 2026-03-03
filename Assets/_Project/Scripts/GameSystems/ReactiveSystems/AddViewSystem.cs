@@ -10,10 +10,12 @@ namespace GameSystems
     {
         readonly Transform _viewContainer = new GameObject("Game Views").transform;
         readonly GameContext _context;
+        readonly GameObjectPool _pool;
 
-        public AddViewSystem(Contexts contexts) : base(contexts.game)
+        public AddViewSystem(Contexts contexts, GameObjectPool pool) : base(contexts.game)
         {
             _context = contexts.game;
+            _pool = pool;
         }
 
         protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
@@ -30,7 +32,10 @@ namespace GameSystems
         {
             foreach (GameEntity e in entities)
             {
-                GameObject go = new GameObject("Game View");
+                GameObject go = _pool.Borrow();
+                if (go == null)
+                    go = new GameObject("Game View");
+
                 go.transform.SetParent(_viewContainer, false);
                 e.AddView(go);
                 go.Link(e);
