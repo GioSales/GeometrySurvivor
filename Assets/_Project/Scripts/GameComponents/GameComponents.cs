@@ -64,5 +64,16 @@ namespace GameComponents
     {
         public Vector2 Value;
     }
+    
+    [Game]
+    public class LifeTimeComponent : IComponent
+    {
+        public float TimeLeft;
+    }
+    
+    // Destroys the entire entity at end of frame
+    [Game]
+    [Cleanup(CleanupMode.DestroyEntity)]
+    public sealed class DestroyedComponent : IComponent { }
 
 }

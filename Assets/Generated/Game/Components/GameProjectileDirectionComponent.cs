@@ -11,14 +11,14 @@ public partial class GameEntity {
     public GameComponents.ProjectileDirectionComponent projectileDirection { get { return (GameComponents.ProjectileDirectionComponent)GetComponent(GameComponentsLookup.ProjectileDirection); } }
     public bool hasProjectileDirection { get { return HasComponent(GameComponentsLookup.ProjectileDirection); } }
 
-    public void AddProjectileDirection(UnityEngine.Vector3 newValue) {
+    public void AddProjectileDirection(UnityEngine.Vector2 newValue) {
         var index = GameComponentsLookup.ProjectileDirection;
         var component = (GameComponents.ProjectileDirectionComponent)CreateComponent(index, typeof(GameComponents.ProjectileDirectionComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceProjectileDirection(UnityEngine.Vector3 newValue) {
+    public void ReplaceProjectileDirection(UnityEngine.Vector2 newValue) {
         var index = GameComponentsLookup.ProjectileDirection;
         var component = (GameComponents.ProjectileDirectionComponent)CreateComponent(index, typeof(GameComponents.ProjectileDirectionComponent));
         component.Value = newValue;

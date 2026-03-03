@@ -10,28 +10,32 @@ public static class GameComponentsLookup {
 
     public const int CircleCollider = 0;
     public const int DebugMessage = 1;
-    public const int Direction = 2;
-    public const int Enemy = 3;
-    public const int EnemyMoveTarget = 4;
-    public const int Position = 5;
-    public const int Projectile = 6;
-    public const int ProjectileDirection = 7;
-    public const int Sprite = 8;
-    public const int SpriteSize = 9;
-    public const int View = 10;
-    public const int BasicAttack = 11;
-    public const int PlayerAction = 12;
-    public const int Player = 13;
-    public const int PlayerMovement = 14;
+    public const int Destroyed = 2;
+    public const int Direction = 3;
+    public const int Enemy = 4;
+    public const int EnemyMoveTarget = 5;
+    public const int LifeTime = 6;
+    public const int Position = 7;
+    public const int Projectile = 8;
+    public const int ProjectileDirection = 9;
+    public const int Sprite = 10;
+    public const int SpriteSize = 11;
+    public const int View = 12;
+    public const int BasicAttack = 13;
+    public const int PlayerAction = 14;
+    public const int Player = 15;
+    public const int PlayerMovement = 16;
 
-    public const int TotalComponents = 15;
+    public const int TotalComponents = 17;
 
     public static readonly string[] componentNames = {
         "CircleCollider",
         "DebugMessage",
+        "Destroyed",
         "Direction",
         "Enemy",
         "EnemyMoveTarget",
+        "LifeTime",
         "Position",
         "Projectile",
         "ProjectileDirection",
@@ -47,9 +51,11 @@ public static class GameComponentsLookup {
     public static readonly System.Type[] componentTypes = {
         typeof(GameComponents.CircleColliderComponent),
         typeof(GameComponents.DebugMessageComponent),
+        typeof(GameComponents.DestroyedComponent),
         typeof(GameComponents.DirectionComponent),
         typeof(GameComponents.EnemyComponent),
         typeof(GameComponents.EnemyMoveTargetComponent),
+        typeof(GameComponents.LifeTimeComponent),
         typeof(GameComponents.PositionComponent),
         typeof(GameComponents.ProjectileComponent),
         typeof(GameComponents.ProjectileDirectionComponent),
