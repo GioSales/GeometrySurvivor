@@ -40,8 +40,9 @@ namespace Input.Systems
 
             PlayerActionComponent actionComponent = _player.playerAction;
             actionComponent.BasicAtkActive = _rewiredPlayer.GetButton(RewiredConsts.Action.BasicAttack);
-
-            Vector2 mousePosition = _inputContext.leftMouseEntity.mousePosition.position;
+            
+            Mouse mouse = ReInput.controllers.Mouse;
+            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(mouse.screenPosition);
             // TODO: cooldown
             if (actionComponent.BasicAtkActive)
             {
