@@ -8,36 +8,60 @@
 //------------------------------------------------------------------------------
 public static class GameComponentsLookup {
 
-    public const int DebugMessage = 0;
-    public const int Direction = 1;
-    public const int MoveComplete = 2;
-    public const int Move = 3;
-    public const int Mover = 4;
-    public const int Position = 5;
-    public const int Sprite = 6;
-    public const int View = 7;
+    public const int CircleCollider = 0;
+    public const int DebugMessage = 1;
+    public const int Direction = 2;
+    public const int Enemy = 3;
+    public const int EnemyMoveTarget = 4;
+    public const int LifeTime = 5;
+    public const int Position = 6;
+    public const int Projectile = 7;
+    public const int ProjectileDirection = 8;
+    public const int Sprite = 9;
+    public const int SpriteSize = 10;
+    public const int ToBeDestroyed = 11;
+    public const int View = 12;
+    public const int PlayerBasicAtk = 13;
+    public const int Player = 14;
+    public const int PlayerMovement = 15;
 
-    public const int TotalComponents = 8;
+    public const int TotalComponents = 16;
 
     public static readonly string[] componentNames = {
+        "CircleCollider",
         "DebugMessage",
         "Direction",
-        "MoveComplete",
-        "Move",
-        "Mover",
+        "Enemy",
+        "EnemyMoveTarget",
+        "LifeTime",
         "Position",
+        "Projectile",
+        "ProjectileDirection",
         "Sprite",
-        "View"
+        "SpriteSize",
+        "ToBeDestroyed",
+        "View",
+        "PlayerBasicAtk",
+        "Player",
+        "PlayerMovement"
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(GameComponents.CircleColliderComponent),
         typeof(GameComponents.DebugMessageComponent),
         typeof(GameComponents.DirectionComponent),
-        typeof(GameComponents.MoveCompleteComponent),
-        typeof(GameComponents.MoveComponent),
-        typeof(GameComponents.MoverComponent),
+        typeof(GameComponents.EnemyComponent),
+        typeof(GameComponents.EnemyMoveTargetComponent),
+        typeof(GameComponents.LifeTimeComponent),
         typeof(GameComponents.PositionComponent),
+        typeof(GameComponents.ProjectileComponent),
+        typeof(GameComponents.ProjectileDirectionComponent),
         typeof(GameComponents.SpriteComponent),
-        typeof(GameComponents.ViewComponent)
+        typeof(GameComponents.SpriteSizeComponent),
+        typeof(GameComponents.ToBeDestroyedComponent),
+        typeof(GameComponents.ViewComponent),
+        typeof(GamePlayer.PlayerBasicAtkComponent),
+        typeof(GamePlayer.PlayerComponent),
+        typeof(GamePlayer.PlayerMovementComponent)
     };
 }

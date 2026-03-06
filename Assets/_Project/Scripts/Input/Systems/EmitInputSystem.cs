@@ -5,6 +5,7 @@ using UnityEngine;
 namespace Input.Systems
 {
 
+    // Just for debugging for now, TODO: rename?
     public class EmitInputSystem : IInitializeSystem, IExecuteSystem
     {
         readonly InputContext _context;

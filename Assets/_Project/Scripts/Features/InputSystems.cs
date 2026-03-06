@@ -9,8 +9,8 @@ namespace Features
         public InputSystems(Contexts contexts) : base("Input Systems")
         {
             Add(new EmitInputSystem(contexts));
-            Add(new CreateMoverSystem(contexts));
-            Add(new CommandMoveSystem(contexts));
+            Add(new CreateEnemySystem(contexts));
+            Add(new PlayerInputSystem(contexts));
         }         
     }
 }

@@ -1,8 +1,10 @@
+using System;
 using UnityEngine;
 
 // Base class for all projectiles, will be refactored with ECS later
 namespace Projectiles
 {
+    [Obsolete]
     public class Projectile : MonoBehaviour
     {
         [SerializeField] private float _speed = 1.0f;

@@ -46,6 +46,10 @@ GeometrySurvivor is an early-stage 2D survivor-style shooter built with **Unity 
 - `com.unity.2d.tilemap` + `com.unity.2d.tilemap.extras` — tilemap support
 - `com.unity.2d.aseprite` 3.0.1 — Aseprite sprite import
 
+## Git
+
+- When committing, only include the `Co-Authored-By: Claude` trailer if the commit contains changes actually made by Claude. Remove it from commits that only contain human-authored changes.
+
 ## Conventions
 
 - Serialized fields use underscore prefix: `_moveSpeed`, `_cooldown`

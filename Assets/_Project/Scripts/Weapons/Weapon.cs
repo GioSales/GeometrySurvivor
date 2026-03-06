@@ -22,7 +22,7 @@ namespace Weapons
                 return;
         
             GameObject projectileInstance = Instantiate(_projectilePrefab, _firePoint.position, _firePoint.rotation);
-            var projectile = projectileInstance.GetComponent<Projectile>();
+            Projectile projectile = projectileInstance.GetComponent<Projectile>();
             projectile.SetDirection(direction); _currCooldown = _cooldown;
         }
 

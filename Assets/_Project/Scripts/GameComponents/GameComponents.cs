@@ -1,4 +1,5 @@
 using Entitas;
+using Entitas.CodeGeneration.Attributes;
 using UnityEngine;
 
 namespace GameComponents
@@ -27,18 +28,52 @@ namespace GameComponents
         public GameObject GameObject;
     }
     
-    public class MoveComponent : IComponent
-    {
-        public Vector2 Target;
-    }
-
     [Game]
-    public class MoverComponent : IComponent
+    public class EnemyMoveTargetComponent : IComponent
+    {
+        // Position to move towards
+        public Vector2 Target;
+        public float MoveSpeed;
+    }
+    
+    [Game]
+    public class SpriteSizeComponent : IComponent
+    {
+        public Vector3 Size;
+    }
+    
+    [Game]
+    public class EnemyComponent : IComponent
     {
     }
     
     [Game]
-    public class MoveCompleteComponent : IComponent
+    public class CircleColliderComponent : IComponent
     {
+        public float Radius;
     }
+    
+    [Game]
+    public class ProjectileComponent : IComponent
+    {
+        public float Speed;
+    }
+    
+    [Game]
+    public class ProjectileDirectionComponent : IComponent
+    {
+        public Vector2 Value;
+    }
+    
+    [Game]
+    public class LifeTimeComponent : IComponent
+    {
+        public float TimeLeft;
+    }
+    
+    // Destroys the entire entity at end of frame
+    [Game]
+    [Cleanup(CleanupMode.DestroyEntity)]
+    public sealed class ToBeDestroyedComponent : IComponent { }
+
 }
