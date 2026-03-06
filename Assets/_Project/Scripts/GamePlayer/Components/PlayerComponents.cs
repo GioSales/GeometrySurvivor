@@ -17,10 +17,12 @@ namespace GamePlayer
         public float VerticalAxis;
     }
 
-    public class BasicAttackComponent : IComponent
+    [Game]
+    public class PlayerBasicAtkComponent : IComponent
     {
-        public float CooldownTimer;
+        public bool IsActive;
         public float Cooldown;
+        public float CdTimer;
     }
     
 }

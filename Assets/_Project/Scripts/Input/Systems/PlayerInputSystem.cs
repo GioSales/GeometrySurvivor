@@ -38,25 +38,8 @@ namespace Input.Systems
             float verMovement = _rewiredPlayer.GetAxis(RewiredConsts.Action.MoveVertical);
             _player.playerMovement.VerticalAxis = verMovement;
 
-            PlayerActionComponent actionComponent = _player.playerAction;
-            actionComponent.BasicAtkActive = _rewiredPlayer.GetButton(RewiredConsts.Action.BasicAttack);
-            
-            Mouse mouse = ReInput.controllers.Mouse;
-            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(mouse.screenPosition);
-            // TODO: cooldown
-            if (actionComponent.BasicAtkActive)
-            {
-                GameEntity projectile = _gameContext.CreateEntity();
-                projectile.AddProjectile(newSpeed: 0.5f);
-                Vector2 direction = mousePosition - _player.position.Value;
-                direction.Normalize();
-                projectile.AddProjectileDirection(direction);
-                projectile.AddPosition(_player.position.Value);
-                projectile.AddDirection(0);
-                projectile.AddSprite("Capsule");
-                projectile.AddSpriteSize(new Vector3(0.04f, 0.08f, 1));
-                projectile.AddLifeTime(2f);
-            }
+            PlayerBasicAtkComponent playerBasicAtkComponent = _player.playerBasicAtk;
+            playerBasicAtkComponent.IsActive = _rewiredPlayer.GetButton(RewiredConsts.Action.BasicAttack);
         }
     }
 }
