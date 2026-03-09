@@ -25,4 +25,10 @@ namespace GamePlayer
         public float CdTimer;
     }
     
+    [Game]
+    public class PlayerAimDirectionComponent : IComponent
+    {
+        public Vector2 Value;
+    }
+    
 }

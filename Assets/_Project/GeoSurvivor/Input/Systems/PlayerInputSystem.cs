@@ -40,6 +40,11 @@ namespace Input.Systems
 
             PlayerBasicAtkComponent playerBasicAtkComponent = _player.playerBasicAtk;
             playerBasicAtkComponent.IsActive = _rewiredPlayer.GetButton(RewiredConsts.Action.BasicAttack);
+            
+            Mouse mouse = ReInput.controllers.Mouse;
+            Vector2 mousePosition = _camera.ScreenToWorldPoint(mouse.screenPosition);
+            Vector2 direction = (mousePosition - _player.position.Value).normalized;
+            _player.playerAimDirection.Value = direction;
         }
     }
 }

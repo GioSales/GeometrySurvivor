@@ -21,11 +21,12 @@ public static class GameComponentsLookup {
     public const int SpriteSize = 10;
     public const int ToBeDestroyed = 11;
     public const int View = 12;
-    public const int PlayerBasicAtk = 13;
-    public const int Player = 14;
-    public const int PlayerMovement = 15;
+    public const int PlayerAimDirection = 13;
+    public const int PlayerBasicAtk = 14;
+    public const int Player = 15;
+    public const int PlayerMovement = 16;
 
-    public const int TotalComponents = 16;
+    public const int TotalComponents = 17;
 
     public static readonly string[] componentNames = {
         "CircleCollider",
@@ -41,6 +42,7 @@ public static class GameComponentsLookup {
         "SpriteSize",
         "ToBeDestroyed",
         "View",
+        "PlayerAimDirection",
         "PlayerBasicAtk",
         "Player",
         "PlayerMovement"
@@ -60,6 +62,7 @@ public static class GameComponentsLookup {
         typeof(GameComponents.SpriteSizeComponent),
         typeof(GameComponents.ToBeDestroyedComponent),
         typeof(GameComponents.ViewComponent),
+        typeof(GamePlayer.PlayerAimDirectionComponent),
         typeof(GamePlayer.PlayerBasicAtkComponent),
         typeof(GamePlayer.PlayerComponent),
         typeof(GamePlayer.PlayerMovementComponent)
