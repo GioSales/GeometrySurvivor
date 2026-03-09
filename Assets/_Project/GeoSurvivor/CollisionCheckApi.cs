@@ -1,6 +1,6 @@
 ﻿using GameComponents;
 
-namespace DefaultNamespace
+namespace GeoSurvivor
 {
     public static class CollisionCheckApi
     {
