@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace GamePlayer
 {
+    // TODO: Use ReplacePlayerBasicAtk() instead of direct field mutation for CdTimer,
+    //       so reactive systems can detect changes (same issue in PlayerInputSystem for IsActive)
+    // TODO: Extract hardcoded projectile values (speed, sprite, size, lifetime) into a config component
     public class PlayerActionSystem : IExecuteSystem, IInitializeSystem
     {
         readonly GameContext _context;
@@ -25,13 +28,9 @@ namespace GamePlayer
 
             if (basicAtk.IsActive && basicAtk.CdTimer <= 0)
             {
-                Mouse mouse = ReInput.controllers.Mouse;
-                Vector2 mousePosition = Camera.main.ScreenToWorldPoint(mouse.screenPosition);
-                
                 GameEntity projectile = _context.CreateEntity();
                 projectile.AddProjectile(newSpeed: 3.5f);
-                Vector2 direction = mousePosition - _player.position.Value;
-                direction.Normalize();
+                Vector2 direction = _player.playerAimDirection.Value;
                 projectile.AddProjectileDirection(direction);
                 projectile.AddPosition(_player.position.Value);
                 projectile.AddDirection(0);
