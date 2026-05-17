@@ -27,6 +27,8 @@ namespace Managers
                 .Add(new MovementSystems(contexts))
                 .Add(new ViewSystems(contexts, pool))
                 .Add(new DestroyFxSystems(contexts))
+                .Add(new CollisionSystem(contexts))
+                .Add(new DebugMessageSystem(contexts))
                 .Add(new CleanUpSystems(contexts, pool));
         }
 

@@ -26,13 +26,14 @@ namespace GameSystems
         {
             foreach (InputEntity e in entities)
             {
-                GameEntity mover = _gameContext.CreateEntity();
-                mover.isEnemy = true;
-                mover.AddEnemyMoveTarget(newTarget: Vector2.zero, newMoveSpeed: 0.5f);
-                mover.AddPosition(e.mouseDown.position);
-                mover.AddDirection(Random.Range(0,360));
-                mover.AddSprite("Triangle");
-                mover.AddSpriteSize(new Vector3(0.15f, 0.15f, 1));
+                GameEntity enemy = _gameContext.CreateEntity();
+                enemy.isEnemy = true;
+                enemy.AddEnemyMoveTarget(newTarget: Vector2.zero, newMoveSpeed: 0.5f);
+                enemy.AddPosition(e.mouseDown.position);
+                enemy.AddDirection(Random.Range(0,360));
+                enemy.AddSprite("Triangle");
+                enemy.AddSpriteSize(new Vector3(0.15f, 0.15f, 1));
+                enemy.AddCircleCollider(0.12f);
             }
         }
     }
