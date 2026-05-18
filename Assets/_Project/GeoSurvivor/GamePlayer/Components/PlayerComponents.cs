@@ -31,4 +31,10 @@ namespace GamePlayer
         public Vector2 Value;
     }
     
+    [Game]
+    public class PlayerExpComponent : IComponent
+    {
+        public int TotalExp;
+    }
+    
 }

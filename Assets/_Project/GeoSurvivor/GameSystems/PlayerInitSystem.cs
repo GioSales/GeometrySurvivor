@@ -24,6 +24,8 @@ namespace GameSystems
             _player.AddPlayerBasicAtk(newIsActive: false, newCooldown: 0.5f, newCdTimer: 0);
             _player.AddPlayerAimDirection(Vector2.zero);
             _player.AddHealth(10);
+            _player.AddCircleCollider(0.12f);
+            _player.AddPlayerExp(0);
         }
     }
 }

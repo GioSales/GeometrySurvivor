@@ -29,9 +29,10 @@ public static class GameComponentsLookup {
     public const int PlayerAimDirection = 18;
     public const int PlayerBasicAtk = 19;
     public const int Player = 20;
-    public const int PlayerMovement = 21;
+    public const int PlayerExp = 21;
+    public const int PlayerMovement = 22;
 
-    public const int TotalComponents = 22;
+    public const int TotalComponents = 23;
 
     public static readonly string[] componentNames = {
         "CircleCollider",
@@ -55,6 +56,7 @@ public static class GameComponentsLookup {
         "PlayerAimDirection",
         "PlayerBasicAtk",
         "Player",
+        "PlayerExp",
         "PlayerMovement"
     };
 
@@ -80,6 +82,7 @@ public static class GameComponentsLookup {
         typeof(GamePlayer.PlayerAimDirectionComponent),
         typeof(GamePlayer.PlayerBasicAtkComponent),
         typeof(GamePlayer.PlayerComponent),
+        typeof(GamePlayer.PlayerExpComponent),
         typeof(GamePlayer.PlayerMovementComponent)
     };
 }
