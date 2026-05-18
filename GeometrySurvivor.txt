@@ -1,0 +1,20 @@
+GeometrySurvivor
+
+Mechanics:
+- swappable skills
+- upgradeable skills (blazblue)
+- powers (slay the spire)
+
+Concetps/Builds
+- inspired by slay the spire
+-- shivs, exhaust, sovereign blade, etc
+- has mechanic at the center, then branches out to diff synergies
+
+Classes
+- passive skill
+- base skills
+
+Concepts ideas:
+- projectile
+- AOE
+- 
