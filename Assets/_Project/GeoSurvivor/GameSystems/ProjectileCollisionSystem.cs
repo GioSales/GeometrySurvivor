@@ -4,13 +4,13 @@ using GeoSurvivor;
 
 namespace GameSystems
 {
-    public class CollisionSystem : IExecuteSystem
+    public class ProjectileCollisionSystem : IExecuteSystem
     {
         readonly GameContext _context;
         readonly IGroup<GameEntity> _enemies;
         readonly IGroup<GameEntity> _projectiles;
         
-        public CollisionSystem(Contexts contexts)
+        public ProjectileCollisionSystem(Contexts contexts)
         {
             _context = contexts.game;
             _enemies = contexts.game.GetGroup(GameMatcher.Enemy);
@@ -37,6 +37,8 @@ namespace GameSystems
                         continue;
                     
                     enemyEntity.AddTakeDamage(projEntity.dealDamage.Value);
+                    // TODO: remove this later when projectiles can pierce 
+                    projEntity.isToBeDestroyed = true;
                 }
             }
         }

@@ -6,7 +6,7 @@ namespace Features
     {
         public CleanUpSystems(Contexts contexts, GameObjectPool pool) : base("TearDown Systems")
         {
-            Add(new DestroySystem(contexts, pool));
+            Add(new DeathSystem(contexts, pool));
 
             // Keep last
             Add(new GameCleanupSystems(contexts));
