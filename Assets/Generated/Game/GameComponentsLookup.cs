@@ -14,22 +14,24 @@ public static class GameComponentsLookup {
     public const int Direction = 3;
     public const int Enemy = 4;
     public const int EnemyMoveTarget = 5;
-    public const int Health = 6;
-    public const int LifeTime = 7;
-    public const int Position = 8;
-    public const int Projectile = 9;
-    public const int ProjectileDirection = 10;
-    public const int Sprite = 11;
-    public const int SpriteSize = 12;
-    public const int TakeDamage = 13;
-    public const int ToBeDestroyed = 14;
-    public const int View = 15;
-    public const int PlayerAimDirection = 16;
-    public const int PlayerBasicAtk = 17;
-    public const int Player = 18;
-    public const int PlayerMovement = 19;
+    public const int Exp = 6;
+    public const int ExpDrop = 7;
+    public const int Health = 8;
+    public const int LifeTime = 9;
+    public const int Position = 10;
+    public const int Projectile = 11;
+    public const int ProjectileDirection = 12;
+    public const int Sprite = 13;
+    public const int SpriteSize = 14;
+    public const int TakeDamage = 15;
+    public const int ToBeDestroyed = 16;
+    public const int View = 17;
+    public const int PlayerAimDirection = 18;
+    public const int PlayerBasicAtk = 19;
+    public const int Player = 20;
+    public const int PlayerMovement = 21;
 
-    public const int TotalComponents = 20;
+    public const int TotalComponents = 22;
 
     public static readonly string[] componentNames = {
         "CircleCollider",
@@ -38,6 +40,8 @@ public static class GameComponentsLookup {
         "Direction",
         "Enemy",
         "EnemyMoveTarget",
+        "Exp",
+        "ExpDrop",
         "Health",
         "LifeTime",
         "Position",
@@ -61,6 +65,8 @@ public static class GameComponentsLookup {
         typeof(GameComponents.DirectionComponent),
         typeof(GameComponents.EnemyComponent),
         typeof(GameComponents.EnemyMoveTargetComponent),
+        typeof(GameComponents.ExpComponent),
+        typeof(GameComponents.ExpDropComponent),
         typeof(GameComponents.HealthComponent),
         typeof(GameComponents.LifeTimeComponent),
         typeof(GameComponents.PositionComponent),

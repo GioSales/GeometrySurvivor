@@ -96,5 +96,17 @@ namespace GameComponents
         public int Value;
         public HashSet<GameEntity> DamagedEntities;
     }
+    
+    [Game]
+    public class ExpDropComponent : IComponent
+    {
+        public int ExpValue;
+    }
+    
+    [Game]
+    public class ExpComponent : IComponent
+    {
+        public int ExpValue;
+    }
 
 }
