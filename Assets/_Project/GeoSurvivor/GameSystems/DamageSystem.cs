@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Entitas;
+using GeoSurvivor.Extensions;
 
 namespace GameSystems
 {
@@ -27,9 +28,9 @@ namespace GameSystems
             foreach (GameEntity e in entities)
             {
                 e.health.Value -= e.takeDamage.Value;
-                GameEntity messageEntity = _context.CreateEntity();
                 
-                messageEntity.AddDebugMessage(e.takeDamage.Value + " Damage dealt to " + e.view.GameObject.name);
+                GameContextExtensions.CreateMessage(_context, e.takeDamage.Value + " Damage dealt to " + e.view.GameObject.name);
+                
                 if (e.health.Value <= 0)
                 {
                     e.isToBeDestroyed = true;
