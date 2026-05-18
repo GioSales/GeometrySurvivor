@@ -75,5 +75,24 @@ namespace GameComponents
     [Game]
     [Cleanup(CleanupMode.DestroyEntity)]
     public sealed class ToBeDestroyedComponent : IComponent { }
+    
+    [Game]
+    public class HealthComponent : IComponent
+    {
+        public int Value;
+    }
+    
+    [Game]
+    [Cleanup(CleanupMode.RemoveComponent)]
+    public class TakeDamageComponent : IComponent
+    {
+        public int Value;
+    }
+    
+    [Game]
+    public class DealDamageComponent : IComponent
+    {
+        public int Value;
+    }
 
 }

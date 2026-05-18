@@ -39,6 +39,7 @@ namespace GamePlayer
                 projectile.AddSpriteSize(new Vector3(0.04f, 0.08f, 1));
                 projectile.AddLifeTime(2f);
                 projectile.AddCircleCollider(0.1f);
+                projectile.AddDealDamage(1);
 
                 basicAtk.CdTimer = basicAtk.Cooldown;
             }

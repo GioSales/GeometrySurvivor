@@ -34,6 +34,7 @@ namespace GameSystems
                 enemy.AddSprite("Triangle");
                 enemy.AddSpriteSize(new Vector3(0.15f, 0.15f, 1));
                 enemy.AddCircleCollider(0.12f);
+                enemy.AddHealth(2);
             }
         }
     }

@@ -19,9 +19,7 @@ namespace GameSystems
         
         public void Execute()
         {
-            // loop projectiles
-            // loop enemies
-            // check each
+            // TODO: do spatial hashing instead of brute force O(N*M)
 
             foreach (GameEntity projEntity in _projectiles)
             {
@@ -32,8 +30,8 @@ namespace GameSystems
                     bool colliding = CollisionCheckApi.IsColliding(projEntity.position, projColl, enemyEntity.position, enemyColl);
                     if (colliding)
                     {
-                        GameEntity messageEntity = _context.CreateEntity();
-                        messageEntity.AddDebugMessage("Collision between: " + projEntity.view.GameObject.name + ", " + enemyEntity.view.GameObject.name);
+                        // TODO: check if already has TakeDamage and accumulate damage
+                        enemyEntity.AddTakeDamage(projEntity.dealDamage.Value);
                     }
                 }
             }

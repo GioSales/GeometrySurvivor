@@ -23,6 +23,7 @@ namespace GameSystems
             _player.AddPlayerMovement(newMoveSpeed: 1, newHorizontalAxis: 0, newVerticalAxis: 0);
             _player.AddPlayerBasicAtk(newIsActive: false, newCooldown: 0.5f, newCdTimer: 0);
             _player.AddPlayerAimDirection(Vector2.zero);
+            _player.AddHealth(10);
         }
     }
 }
