@@ -9,62 +9,80 @@
 public static class GameComponentsLookup {
 
     public const int CircleCollider = 0;
-    public const int DebugMessage = 1;
-    public const int Direction = 2;
-    public const int Enemy = 3;
-    public const int EnemyMoveTarget = 4;
-    public const int LifeTime = 5;
-    public const int Position = 6;
-    public const int Projectile = 7;
-    public const int ProjectileDirection = 8;
-    public const int Sprite = 9;
-    public const int SpriteSize = 10;
-    public const int ToBeDestroyed = 11;
-    public const int View = 12;
-    public const int PlayerAimDirection = 13;
-    public const int PlayerBasicAtk = 14;
-    public const int Player = 15;
-    public const int PlayerMovement = 16;
+    public const int DealDamage = 1;
+    public const int DebugMessage = 2;
+    public const int Direction = 3;
+    public const int Enemy = 4;
+    public const int EnemyMoveTarget = 5;
+    public const int Exp = 6;
+    public const int ExpDrop = 7;
+    public const int Health = 8;
+    public const int LifeTime = 9;
+    public const int Position = 10;
+    public const int Projectile = 11;
+    public const int ProjectileDirection = 12;
+    public const int Sprite = 13;
+    public const int SpriteSize = 14;
+    public const int TakeDamage = 15;
+    public const int ToBeDestroyed = 16;
+    public const int View = 17;
+    public const int PlayerAimDirection = 18;
+    public const int PlayerBasicAtk = 19;
+    public const int Player = 20;
+    public const int PlayerExp = 21;
+    public const int PlayerMovement = 22;
 
-    public const int TotalComponents = 17;
+    public const int TotalComponents = 23;
 
     public static readonly string[] componentNames = {
         "CircleCollider",
+        "DealDamage",
         "DebugMessage",
         "Direction",
         "Enemy",
         "EnemyMoveTarget",
+        "Exp",
+        "ExpDrop",
+        "Health",
         "LifeTime",
         "Position",
         "Projectile",
         "ProjectileDirection",
         "Sprite",
         "SpriteSize",
+        "TakeDamage",
         "ToBeDestroyed",
         "View",
         "PlayerAimDirection",
         "PlayerBasicAtk",
         "Player",
+        "PlayerExp",
         "PlayerMovement"
     };
 
     public static readonly System.Type[] componentTypes = {
         typeof(GameComponents.CircleColliderComponent),
+        typeof(GameComponents.DealDamageComponent),
         typeof(GameComponents.DebugMessageComponent),
         typeof(GameComponents.DirectionComponent),
         typeof(GameComponents.EnemyComponent),
         typeof(GameComponents.EnemyMoveTargetComponent),
+        typeof(GameComponents.ExpComponent),
+        typeof(GameComponents.ExpDropComponent),
+        typeof(GameComponents.HealthComponent),
         typeof(GameComponents.LifeTimeComponent),
         typeof(GameComponents.PositionComponent),
         typeof(GameComponents.ProjectileComponent),
         typeof(GameComponents.ProjectileDirectionComponent),
         typeof(GameComponents.SpriteComponent),
         typeof(GameComponents.SpriteSizeComponent),
+        typeof(GameComponents.TakeDamageComponent),
         typeof(GameComponents.ToBeDestroyedComponent),
         typeof(GameComponents.ViewComponent),
         typeof(GamePlayer.PlayerAimDirectionComponent),
         typeof(GamePlayer.PlayerBasicAtkComponent),
         typeof(GamePlayer.PlayerComponent),
+        typeof(GamePlayer.PlayerExpComponent),
         typeof(GamePlayer.PlayerMovementComponent)
     };
 }

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Entitas;
 using Entitas.CodeGeneration.Attributes;
 using UnityEngine;
@@ -75,5 +76,37 @@ namespace GameComponents
     [Game]
     [Cleanup(CleanupMode.DestroyEntity)]
     public sealed class ToBeDestroyedComponent : IComponent { }
+    
+    [Game]
+    public class HealthComponent : IComponent
+    {
+        public int Value;
+    }
+    
+    [Game]
+    [Cleanup(CleanupMode.RemoveComponent)]
+    public class TakeDamageComponent : IComponent
+    {
+        public int Value;
+    }
+    
+    [Game]
+    public class DealDamageComponent : IComponent
+    {
+        public int Value;
+        public HashSet<GameEntity> DamagedEntities;
+    }
+    
+    [Game]
+    public class ExpDropComponent : IComponent
+    {
+        public int ExpValue;
+    }
+    
+    [Game]
+    public class ExpComponent : IComponent
+    {
+        public int ExpValue;
+    }
 
 }

@@ -1,5 +1,5 @@
-﻿using Entitas;
-using Rewired;
+﻿using System.Collections.Generic;
+using Entitas;
 using UnityEngine;
 
 namespace GamePlayer
@@ -28,6 +28,7 @@ namespace GamePlayer
 
             if (basicAtk.IsActive && basicAtk.CdTimer <= 0)
             {
+                // TODO: move projectile creation to a factory or somewhere, more scalable
                 GameEntity projectile = _context.CreateEntity();
                 projectile.AddProjectile(newSpeed: 3.5f);
                 Vector2 direction = _player.playerAimDirection.Value;
@@ -37,6 +38,8 @@ namespace GamePlayer
                 projectile.AddSprite("Capsule");
                 projectile.AddSpriteSize(new Vector3(0.04f, 0.08f, 1));
                 projectile.AddLifeTime(2f);
+                projectile.AddCircleCollider(0.1f);
+                projectile.AddDealDamage(1, new HashSet<GameEntity>());
 
                 basicAtk.CdTimer = basicAtk.Cooldown;
             }
