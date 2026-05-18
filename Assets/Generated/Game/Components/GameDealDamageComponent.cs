@@ -11,17 +11,19 @@ public partial class GameEntity {
     public GameComponents.DealDamageComponent dealDamage { get { return (GameComponents.DealDamageComponent)GetComponent(GameComponentsLookup.DealDamage); } }
     public bool hasDealDamage { get { return HasComponent(GameComponentsLookup.DealDamage); } }
 
-    public void AddDealDamage(int newValue) {
+    public void AddDealDamage(int newValue, System.Collections.Generic.HashSet<GameEntity> newDamagedEntities) {
         var index = GameComponentsLookup.DealDamage;
         var component = (GameComponents.DealDamageComponent)CreateComponent(index, typeof(GameComponents.DealDamageComponent));
         component.Value = newValue;
+        component.DamagedEntities = newDamagedEntities;
         AddComponent(index, component);
     }
 
-    public void ReplaceDealDamage(int newValue) {
+    public void ReplaceDealDamage(int newValue, System.Collections.Generic.HashSet<GameEntity> newDamagedEntities) {
         var index = GameComponentsLookup.DealDamage;
         var component = (GameComponents.DealDamageComponent)CreateComponent(index, typeof(GameComponents.DealDamageComponent));
         component.Value = newValue;
+        component.DamagedEntities = newDamagedEntities;
         ReplaceComponent(index, component);
     }
 

@@ -1,5 +1,5 @@
-﻿using Entitas;
-using Rewired;
+﻿using System.Collections.Generic;
+using Entitas;
 using UnityEngine;
 
 namespace GamePlayer
@@ -39,7 +39,7 @@ namespace GamePlayer
                 projectile.AddSpriteSize(new Vector3(0.04f, 0.08f, 1));
                 projectile.AddLifeTime(2f);
                 projectile.AddCircleCollider(0.1f);
-                projectile.AddDealDamage(1);
+                projectile.AddDealDamage(1, new HashSet<GameEntity>());
 
                 basicAtk.CdTimer = basicAtk.Cooldown;
             }

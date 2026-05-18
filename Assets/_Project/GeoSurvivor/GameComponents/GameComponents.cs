@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Entitas;
 using Entitas.CodeGeneration.Attributes;
 using UnityEngine;
@@ -93,6 +94,7 @@ namespace GameComponents
     public class DealDamageComponent : IComponent
     {
         public int Value;
+        public HashSet<GameEntity> DamagedEntities;
     }
 
 }

@@ -28,11 +28,15 @@ namespace GameSystems
                     CircleColliderComponent projColl = projEntity.circleCollider;
                     CircleColliderComponent enemyColl = enemyEntity.circleCollider;
                     bool colliding = CollisionCheckApi.IsColliding(projEntity.position, projColl, enemyEntity.position, enemyColl);
-                    if (colliding)
-                    {
-                        // TODO: check if already has TakeDamage and accumulate damage
-                        enemyEntity.AddTakeDamage(projEntity.dealDamage.Value);
-                    }
+                    if (!colliding) 
+                        continue;
+                    
+                    // prevents same projectile from hitting the same enemy multiple times
+                    bool uniqueHit = projEntity.dealDamage.DamagedEntities.Add(enemyEntity);
+                    if (!uniqueHit)
+                        continue;
+                    
+                    enemyEntity.AddTakeDamage(projEntity.dealDamage.Value);
                 }
             }
         }
