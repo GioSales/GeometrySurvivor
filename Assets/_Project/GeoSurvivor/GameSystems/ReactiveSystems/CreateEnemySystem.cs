@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Entitas;
+using GeoSurvivor.Extensions;
 using UnityEngine;
 
 namespace GameSystems
@@ -26,16 +27,7 @@ namespace GameSystems
         {
             foreach (InputEntity e in entities)
             {
-                GameEntity enemy = _gameContext.CreateEntity();
-                enemy.isEnemy = true;
-                enemy.AddEnemyMoveTarget(newTarget: Vector2.zero, newMoveSpeed: 0.5f);
-                enemy.AddPosition(e.mouseDown.position);
-                enemy.AddDirection(Random.Range(0,360));
-                enemy.AddSprite("Triangle");
-                enemy.AddSpriteSize(new Vector3(0.15f, 0.15f, 1));
-                enemy.AddCircleCollider(0.12f);
-                enemy.AddHealth(2);
-                enemy.AddExpDrop(1);
+                GameContextExtensions.CreateEnemy(_gameContext, e.mouseDown.position);
             }
         }
     }
