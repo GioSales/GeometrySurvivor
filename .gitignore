@@ -102,3 +102,4 @@ InitTestScene*.unity*
 .idea
 .claude/settings.local.json
 .claude
+CLAUDE.md
