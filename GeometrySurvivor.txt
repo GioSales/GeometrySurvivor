@@ -1,5 +1,30 @@
 GeometrySurvivor
 
+
+MVP
+- 2 enemies
+-- ranged
+-- basic
+
+- 1 playable chara
+-- passive
+-- 2 skills
+-- ultimate
+
+- 1 map/level
+
+- 2 "builds"
+-- projectile
+-- aoe
+
+MVP 2.0
+
+- 1 bossfight
+- branching off the 2 builds
+
+
+Ideas:
+
 Mechanics:
 - swappable skills
 - upgradeable skills (blazblue)
@@ -17,4 +42,12 @@ Classes
 Concepts ideas:
 - projectile
 - AOE
-- 
+
+
+
+---
+
+
+
+Path of exile meta progression? end game?
+- watch out for scope creep lol
