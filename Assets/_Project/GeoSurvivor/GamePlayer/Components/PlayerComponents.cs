@@ -37,4 +37,23 @@ namespace GamePlayer
         public int TotalExp;
     }
     
+    [Game]
+    public class PlayerExpNeededComponent : IComponent
+    {
+        public int Value;
+    }
+    
+    [Game]
+    public class PlayerLevelComponent : IComponent
+    {
+        public int Value;
+    }
+    
+    [Game]
+    [Cleanup(CleanupMode.RemoveComponent)]
+    public class PlayerGainExpComponent : IComponent
+    {
+        public int ExpToGain;
+    }
+    
 }

@@ -12,6 +12,7 @@ namespace Features
             Add(new PlayerMovementSystem(contexts));
             Add(new PlayerActionSystem(contexts));
             Add(new PlayerCollectExpSystem(contexts));
+            Add(new PlayerLevelUpSystem(contexts));
         }  
     }
 }

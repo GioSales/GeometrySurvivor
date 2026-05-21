@@ -32,8 +32,17 @@ namespace GamePlayer
                 if (!colliding) 
                     continue;
 
-                _player.playerExp.TotalExp += expEntity.exp.ExpValue;
-                GameContextExtensions.CreateMessage(_context, "Player gained " + expEntity.exp.ExpValue + ", Total: " + _player.playerExp.TotalExp);
+                
+                if (_player.hasPlayerGainExp)
+                {
+                    // accumulate exp if gains more than 1 in same frame
+                    int expToGain = _player.playerGainExp.ExpToGain;
+                    _player.ReplacePlayerGainExp(expToGain + _player.playerGainExp.ExpToGain); 
+                }
+                else
+                {
+                    _player.AddPlayerGainExp(expEntity.exp.ExpValue);
+                }
                 expEntity.isToBeDestroyed = true;
             }
         }

@@ -26,6 +26,8 @@ namespace GameSystems
             _player.AddHealth(10);
             _player.AddCircleCollider(0.12f);
             _player.AddPlayerExp(0);
+            _player.AddPlayerExpNeeded(5);
+            _player.AddPlayerLevel(1);
         }
     }
 }
